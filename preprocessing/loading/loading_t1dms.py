@@ -14,10 +14,12 @@ def load_t1dms(dataset, subject, day_len):
     :param day_len: length of day scaled to sampling frequency
     :return: dataframe
     """
-    df = pd.read_csv(join(cs.path, "data", dataset, subject + ".csv"), header=None, dtype=np.float64)
+    # df = pd.read_csv(join(cs.path, "data", dataset, subject + ".csv"), header=None, dtype=np.float64)
+    df = pd.read_csv(join("..", "Our Data", "train_301e2b3f992a2ee94fcbd13a207de095e06a99c680f707f2d84a8d60f328c998" + ".csv"), header=None, dtype=np.float64, usecols=["cDateTime", "mg_dL", "grams", "bolusInsulinAmount"])
     df.columns = ["datetime", "glucose", "CHO", "insulin"]
     df.datetime = (df.datetime % day_len).astype("float64")
-    start_day = datetime.datetime.strptime("2020-01-01 00:00:00", "%Y-%m-%d %H:%M:%S")
+    # start_day = datetime.datetime.strptime("2020-01-01 00:00:00", "%Y-%m-%d %H:%M:%S")
+    start_day = datetime.datetime.strptime("2018-05-09 17:02:00", "%Y-%m-%d %H:%M:%S")
     day_len_ds = day_len * cs.freq / misc.datasets.datasets[dataset]["glucose_freq"]
     end_day = start_day + datetime.timedelta(days=np.float64(len(df) // day_len_ds)) - datetime.timedelta(minutes=1)
     df.datetime = pd.period_range(start_day, end_day, freq='1min').to_timestamp()
