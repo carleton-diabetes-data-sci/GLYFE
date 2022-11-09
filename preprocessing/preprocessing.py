@@ -62,6 +62,7 @@ preprocessing_per_dataset = {
     "t1dms_adolescent": preprocessing_t1dms,
     "t1dms_child": preprocessing_t1dms,
     "ohio": preprocessing_ohio,
+    "train_301": preprocessing_t1dms,
 }
 
 

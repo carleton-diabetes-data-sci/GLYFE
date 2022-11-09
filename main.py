@@ -59,7 +59,7 @@ if __name__ == "__main__":
             python main.py --dataset=ohio --subject=559 --model=base --params=base --ph=30 
                         --exp=myexp --mode=valid --plot=1 --log=mylog
     """
-
+# python main.py --dataset=train_301 --subject=1 --model=lstm --params=lstm --ph=60 --exp=train_301 --mode=test --plot=1
     """ ARGUMENTS HANDLER """
     # retrieve and process arguments
     parser = argparse.ArgumentParser()

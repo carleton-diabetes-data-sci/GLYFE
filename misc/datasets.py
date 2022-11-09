@@ -29,4 +29,9 @@ datasets = {
         "subjects": ["1", "2", "3", "4", "5", "6"],
         "n_days_test": 5,
     },
+    "train_301": {
+        "glucose_freq": 1,
+        "subjects": ["1"],
+        "n_days_test": 5,
+    }
 }
