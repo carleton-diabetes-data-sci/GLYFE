@@ -32,7 +32,7 @@ def load_t1dms(dataset, subject, day_len):
     end_day = start_day + datetime.timedelta(days=np.float64(len(df) // day_len_ds)) - datetime.timedelta(minutes=1)
     
     print("\n\n\n\n\n", start_day, day_len_ds, end_day)
-
+    df = df[:pd.period_range(start_day, end_day, freq='1min').shape[0]]
     df.datetime = pd.period_range(start_day, end_day, freq='1min').to_timestamp()
     return df
 
