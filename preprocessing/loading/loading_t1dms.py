@@ -31,9 +31,15 @@ def load_t1dms(dataset, subject, day_len):
     day_len_ds = day_len * cs.freq / misc.datasets.datasets[dataset]["glucose_freq"]
     end_day = start_day + datetime.timedelta(days=np.float64(len(df) // day_len_ds)) - datetime.timedelta(minutes=1)
     
-    print("\n\n\n\n\n", start_day, day_len_ds, end_day)
+    # print("\n\n\n\n\n", start_day, day_len_ds, end_day)
+     
     df = df[:pd.period_range(start_day, end_day, freq='1min').shape[0]]
     df.datetime = pd.period_range(start_day, end_day, freq='1min').to_timestamp()
+    df["CHO"] = df["CHO"].fillna(0)
+    df["insulin"] = df["insulin"].fillna(0)
+    df["glucose"] = df["glucose"].interpolate()
+
+    print(df.head(10))
     return df
 
 
