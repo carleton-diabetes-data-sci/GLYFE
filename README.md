@@ -1,3 +1,7 @@
+# Carleton Diabetes Research Group
+
+In Fall 2023, we decided to try to run this code on the exact same data as De Bois.
+
 # GLYFE (GLYcemia Forecasting Evaluation)
 
 [![DOI](https://zenodo.org/badge/184261006.svg)](https://zenodo.org/badge/latestdoi/184261006)
