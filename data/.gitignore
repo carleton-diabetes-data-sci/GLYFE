@@ -2,3 +2,8 @@
 *
 # Except this file
 !.gitignore
+
+# And except the directory names (contents _should_ be ignored)
+!ohio
+!ohio/OhioT1DM-testing
+!ohio/OhioT1DM-training
