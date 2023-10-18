@@ -17,9 +17,10 @@ def main(dataset, subject, model, params, exp, mode, log, ph, plot):
     printd(dataset, subject, model, params, exp, mode, log, ph, plot)
 
     # retrieve model's parameters
+    model_class = locate_model(model)
     search = locate_search(params)
     params = locate_params(params)
-    model_class = locate_model(model)
+    
 
     # scale variables in minutes to the benchmark sampling frequency
     ph_f = ph // cs.freq
@@ -77,6 +78,10 @@ if __name__ == "__main__":
     # compute stdout redirection to log file
     if args.log:
         sys.stdout = open(join(cs.path, "logs", args.log + ".log"), "w")
+
+    # README said default params name to model name
+    if not args.params:
+        args.params = args.model
 
     main(log=args.log,
          subject=args.subject,
