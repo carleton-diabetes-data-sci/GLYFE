@@ -8,6 +8,8 @@ from misc.utils import locate_model, locate_params, locate_search
 import misc.constants as cs
 from misc.utils import printd
 from processing.cross_validation import make_predictions, find_best_hyperparameters
+import os
+from pathlib import Path
 
 """ This is the source code the benchmark GLYFE for glucose prediction in diabetes.
     For more infos on how to use it, go to its Github repository at: https://github.com/dotXem/GLYFE """
@@ -41,7 +43,10 @@ def main(dataset, subject, model, params, exp, mode, log, ph, plot):
     results = ResultsSubject(model, exp, ph, dataset, subject, params=params, results=raw_results)
     printd(results.compute_results())
     if plot:
-        results.plot(0)
+        dir = os.path.join(cs.path, "plots", model, exp, "ph-" + str(ph))
+        Path(dir).mkdir(parents=True, exist_ok=True)
+        file_path = os.path.join(dir, dataset + "_" + subject + ".svg")
+        results.plot(file_path, 0)
 
 
 if __name__ == "__main__":

@@ -190,7 +190,7 @@ class CG_EGA():
 
         return df_nan
 
-    def plot(self, day=0):
+    def plot(self, file_path, day=0):
         """
         Plot the given day predictions and CG-EGA
         :param day: (int) number of the day for which to plot the predictions and CG-EGA
@@ -297,5 +297,6 @@ class CG_EGA():
         ax3.plot(ep["dy_true"], ep["dy_pred"], label="EP", marker="o", mec="xkcd:red", mfc="xkcd:red", ls="")
 
         ax3.legend()
-
+        plt.savefig(file_path)
         plt.show()
+        

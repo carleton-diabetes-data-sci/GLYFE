@@ -143,6 +143,7 @@ class ResultsSubject(_Results):
 
         np.save(os.path.join(dir, self.dataset + "_" + self.subject + ".npy"), [self.params, saveable_results])
 
+
     def _compute_raw_results(self, split_by_day=False):
         """
         Compute the raw metrics results for every split (or day, if split_by_day)
@@ -215,10 +216,10 @@ class ResultsSubject(_Results):
 
         return mean, std
 
-    def plot(self, day_number=0):
+    def plot(self, file_path, day_number=0):
         """
         Plot a given day
         :param day_number: day (int) to plot
         :return: /
         """
-        cg_ega.CG_EGA(self.results[0], self.freq).plot(day_number)
+        cg_ega.CG_EGA(self.results[0], self.freq).plot(file_path, day_number)
