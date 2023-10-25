@@ -45,7 +45,7 @@ def main(dataset, subject, model, params, exp, mode, log, ph, plot):
     if plot:
         dir = os.path.join(cs.path, "plots", model, exp, "ph-" + str(ph))
         Path(dir).mkdir(parents=True, exist_ok=True)
-        file_path = os.path.join(dir, dataset + "_" + subject + ".svg")
+        file_path = os.path.join(dir, dataset + "_" + subject + ".png")
         results.plot(file_path, 0)
 
 
