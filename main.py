@@ -45,8 +45,14 @@ def main(dataset, subject, model, params, exp, mode, log, ph, plot):
     if plot:
         dir = os.path.join(cs.path, "plots", model, exp, "ph-" + str(ph))
         Path(dir).mkdir(parents=True, exist_ok=True)
-        file_path = os.path.join(dir, dataset + "_" + subject + ".png")
-        results.plot(file_path, 0)
+        if mode == 'valid':
+            file_path = os.path.join(dir, dataset + "_" + subject + "_valid.png")
+            results.plot(file_path, 0)
+        if mode == 'test':
+            for day in range(10): # hard coded for the ohio dataset
+                file_path = os.path.join(dir, dataset + "_" + subject + "_test_" + str(day) + ".png")
+                results.plot(file_path, day)
+
 
 
 if __name__ == "__main__":

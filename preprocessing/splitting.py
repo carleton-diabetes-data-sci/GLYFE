@@ -33,5 +33,4 @@ def split(data, day_len, test_n_days, cv_factor):
 
         train.append(pd.concat([get_whole_day(train_valid, i) for i in train_idx], axis=0, ignore_index=True))
         valid.append(pd.concat([get_whole_day(train_valid, i) for i in valid_idx], axis=0, ignore_index=True))
-
     return train, valid, test
