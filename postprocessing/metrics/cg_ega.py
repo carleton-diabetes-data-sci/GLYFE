@@ -299,4 +299,3 @@ class CG_EGA():
         ax3.legend()
         plt.savefig(file_path)
         plt.show()
-        
