@@ -1,0 +1,2 @@
+2023-11-05 18:07:47 ohio 559 lstm lstm NOV_3_2023 test None 30 1
+2023-11-05 18:07:59 Saved model's file: ./tmp/lstm_weights/8318467.pt
