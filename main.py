@@ -15,13 +15,13 @@ from pathlib import Path
     For more infos on how to use it, go to its Github repository at: https://github.com/dotXem/GLYFE """
 
 
-def main(dataset, subject, model, params, exp, mode, log, ph, plot):
-    printd(dataset, subject, model, params, exp, mode, log, ph, plot)
+def main(dataset, subject, model, params_name, exp, mode, log, ph, plot):
+    printd(dataset, subject, model, params_name, exp, mode, log, ph, plot)
 
     # retrieve model's parameters
     model_class = locate_model(model)
-    search = locate_search(params)
-    params = locate_params(params)
+    search = locate_search(params_name)
+    params = locate_params(params_name)
     
 
     # scale variables in minutes to the benchmark sampling frequency
@@ -43,7 +43,12 @@ def main(dataset, subject, model, params, exp, mode, log, ph, plot):
     results = ResultsSubject(model, exp, ph, dataset, subject, params=params, results=raw_results)
     printd(results.compute_results())
     if plot:
-        dir = os.path.join(cs.path, "plots", model, exp, "ph-" + str(ph))
+        print('here')
+        print(f'params: {params_name}')
+        print(f'exp: {exp}')
+        print(f'ph: {ph}')
+        dir = os.path.join(cs.path, "plots", params_name, exp, "ph-" + str(ph))
+        print('past here')
         Path(dir).mkdir(parents=True, exist_ok=True)
         if mode == 'valid':
             file_path = os.path.join(dir, dataset + "_" + subject + "_valid.png")
@@ -98,7 +103,7 @@ if __name__ == "__main__":
          subject=args.subject,
          model=args.model,
          ph=args.ph,
-         params=args.params,
+         params_name=args.params,
          exp=args.exp,
          dataset=args.dataset,
          mode=args.mode,
