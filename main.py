@@ -43,12 +43,7 @@ def main(dataset, subject, model, params_name, exp, mode, log, ph, plot):
     results = ResultsSubject(model, exp, ph, dataset, subject, params=params, results=raw_results)
     printd(results.compute_results())
     if plot:
-        print('here')
-        print(f'params: {params_name}')
-        print(f'exp: {exp}')
-        print(f'ph: {ph}')
         dir = os.path.join(cs.path, "plots", params_name, exp, "ph-" + str(ph))
-        print('past here')
         Path(dir).mkdir(parents=True, exist_ok=True)
         if mode == 'valid':
             file_path = os.path.join(dir, dataset + "_" + subject + "_valid.png")
