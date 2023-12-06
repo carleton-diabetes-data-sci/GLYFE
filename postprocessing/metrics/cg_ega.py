@@ -136,6 +136,11 @@ class CG_EGA():
 
         df.columns = ["y_true", "dy_true", "y_pred", "dy_pred", "P_A", "P_B", "P_C", "P_D", "P_E", "R_A", "R_B", "R_uC",
                       "R_lC", "R_uD", "R_lD", "R_uE", "R_lE", "CG_EGA"]
+        
+        # "?" placeholders for filling in the CG-EGA, P_EGA, R_EGA columns
+        # It matters that it's a string, because all the labels we fill in are strings.
+        df["P_EGA"] = len(df.index) * ["?"]
+        df["R_EGA"] = len(df.index) * ["?"]
 
         p_ega_labels = ["A", "B", "C", "D", "E"]
         r_ega_labels = ["A", "B", "uC", "lC", "uD", "lD", "uE", "lE"]
@@ -181,7 +186,7 @@ class CG_EGA():
 
             df.loc[i, "P_EGA"] = p_ega_labels[np.argmax(p_ega_i.ravel())]
             df.loc[i, "R_EGA"] = r_ega_labels[np.argmax(r_ega_i.ravel())]
-
+         
         df.index = pd.notnull(self.results).all(1).to_numpy().nonzero()[0]
         df_nan = pd.concat([
             self.results.copy().reset_index().rename(columns={"index": "datetime"}),

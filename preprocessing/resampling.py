@@ -15,7 +15,7 @@ def resample(data, freq):
     index = pd.period_range(start=start,
                             end=end,
                             freq=str(freq) + 'min').to_timestamp()
-    data = data.resample(str(freq) + 'min', on="datetime").agg({'glucose': np.mean, 'CHO': np.sum, "insulin": np.sum})
+    data = data.resample(str(freq) + 'min', on="datetime").agg({'glucose': "mean", 'CHO': "sum", "insulin": "sum"})
     data = data.reindex(index=index)
     data = data.reset_index()
     data = data.rename(columns={"index": "datetime"})
