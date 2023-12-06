@@ -119,10 +119,12 @@ class ResultsSubject(_Results):
         Load the results from previous instance of ResultsSubject that has saved the them
         :return: (params dictionary), dataframe with ground truths and predictions
         """
-        file = self.dataset + "_" + self.subject + ".npy"
+        file = self.dataset + "_" + self.subject + ".npz"
         path = os.path.join(cs.path, "results", self.model, self.experiment, "ph-" + str(self.ph), file)
 
-        params, results = np.load(path, allow_pickle=True)
+        data = np.load(path, allow_pickle=True)
+        params = data["params"].tolist() # tolist() converts the 0-dim numpy array to the entry stored in it. Here, a dictionary.
+        results = data["results"]
         dfs = []
         for result in results:
             df = pd.DataFrame(result, columns=["datetime", "y_true", "y_pred"])
@@ -141,7 +143,7 @@ class ResultsSubject(_Results):
 
         saveable_results = np.array([res.reset_index().to_numpy() for res in self.results])
 
-        np.save(os.path.join(dir, self.dataset + "_" + self.subject + ".npy"), [self.params, saveable_results])
+        np.savez(os.path.join(dir, self.dataset + "_" + self.subject + ".npz"), params=self.params, results=saveable_results)
 
 
     def _compute_raw_results(self, split_by_day=False):
