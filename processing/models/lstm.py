@@ -18,7 +18,9 @@ class LSTM(Predictor):
 
         # save model
         rnd = np.random.randint(1e7)
-        self.checkpoint_file = os.path.join(cs.path, "tmp", "lstm_weights", str(rnd) + ".pt")
+        temp_dir = os.path.join(cs.path, "tmp", "lstm_weights")
+        os.makedirs(temp_dir, exist_ok=True)
+        self.checkpoint_file = os.path.join(temp_dir, str(rnd) + ".pt")
         printd("Saved model's file:", self.checkpoint_file)
 
         self.model = self.LSTM_Module(x_train.shape[2], self.params["hidden"], self.params["dropout"])

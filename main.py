@@ -10,6 +10,7 @@ from misc.utils import printd
 from processing.cross_validation import make_predictions, find_best_hyperparameters
 import os
 from pathlib import Path
+from shutil import rmtree
 
 """ This is the source code the benchmark GLYFE for glucose prediction in diabetes.
     For more infos on how to use it, go to its Github repository at: https://github.com/dotXem/GLYFE """
@@ -38,6 +39,13 @@ def main(dataset, subject, model, params_name, exp, mode, log, ph, plot):
     raw_results = make_predictions(subject, model_class, params, ph_f, train, valid, test, mode=mode)
     """ POST-PROCESSING """
     raw_results = postprocessing(raw_results, scalers, dataset)
+    # delete temporary files created by the neural nets
+    if model == "lstm" or model == "ffnn":
+        # these directories were created in the files processing/models/lstm.py and processing/models/ffnn.py
+        rmtree(os.path.join(cs.path, "tmp"))
+        # I can't figure out why De Bois didn't use Python's tempfile module for this
+        # We could refactor, but I don't think it's worth is now
+
 
     """ EVALUATION """
     results = ResultsSubject(model, exp, ph, dataset, subject, params=params, results=raw_results)
