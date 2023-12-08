@@ -1,0 +1,43 @@
+2023-12-08 14:36:16 ohio 559 arimax arx DEC_8_2023 test None 60 1
+Optimization terminated successfully.
+         Current function value: -0.724562
+         Iterations: 7
+         Function evaluations: 896
+2023-12-08 14:36:36 end predict
+2023-12-08 14:36:36 {'hist': 180, 'p': 20.0, 'd': 0, 'q': 0, 'use_exog': True} [0.7211338082756519]
+Optimization terminated successfully.
+         Current function value: -0.725062
+         Iterations: 15
+         Function evaluations: 3486
+2023-12-08 14:37:22 end predict
+2023-12-08 14:37:22 {'hist': 180, 'p': 40.0, 'd': 0, 'q': 0, 'use_exog': True} [0.7189242387334425]
+Optimization terminated successfully.
+         Current function value: -0.725753
+         Iterations: 28
+         Function evaluations: 9444
+2023-12-08 14:39:55 end predict
+2023-12-08 14:39:55 {'hist': 180, 'p': 60.0, 'd': 0, 'q': 0, 'use_exog': True} [0.7227851194552475]
+Optimization terminated successfully.
+         Current function value: -0.716259
+         Iterations: 20
+         Function evaluations: 8800
+2023-12-08 14:42:50 end predict
+2023-12-08 14:42:50 {'hist': 180, 'p': 80.0, 'd': 0, 'q': 0, 'use_exog': True} [0.7205878243266918]
+Optimization terminated successfully.
+         Current function value: -0.722692
+         Iterations: 31
+         Function evaluations: 16967
+2023-12-08 14:50:28 end predict
+2023-12-08 14:50:28 {'hist': 180, 'p': 100.0, 'd': 0, 'q': 0, 'use_exog': True} [0.7193881182872124]
+Optimization terminated successfully.
+         Current function value: -0.724847
+         Iterations: 32
+         Function evaluations: 20821
+2023-12-08 15:02:15 end predict
+2023-12-08 15:02:15 {'hist': 180, 'p': 120.0, 'd': 0, 'q': 0, 'use_exog': True} [0.7198427864459157]
+Optimization terminated successfully.
+         Current function value: -0.724953
+         Iterations: 34
+         Function evaluations: 25697
+2023-12-08 15:22:25 end predict
+2023-12-08 15:22:25 {'hist': 180, 'p': 140.0, 'd': 0, 'q': 0, 'use_exog': True} [0.7178844770612605]
