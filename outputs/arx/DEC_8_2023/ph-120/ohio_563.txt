@@ -1,0 +1,46 @@
+2023-12-09 09:21:52 ohio 563 arimax arx DEC_8_2023 test None 120 1
+Optimization terminated successfully.
+         Current function value: -0.789616
+         Iterations: 11
+         Function evaluations: 1403
+2023-12-09 09:22:17 end predict
+2023-12-09 09:22:17 {'hist': 180, 'p': 20.0, 'd': 0, 'q': 0, 'use_exog': True} [1.108985297851071]
+Optimization terminated successfully.
+         Current function value: -0.794599
+         Iterations: 32
+         Function evaluations: 7563
+2023-12-09 09:24:00 end predict
+2023-12-09 09:24:00 {'hist': 180, 'p': 40.0, 'd': 0, 'q': 0, 'use_exog': True} [1.1180244976136426]
+Optimization terminated successfully.
+         Current function value: -0.794587
+         Iterations: 49
+         Function evaluations: 16658
+2023-12-09 09:28:47 end predict
+2023-12-09 09:28:47 {'hist': 180, 'p': 60.0, 'd': 0, 'q': 0, 'use_exog': True} [1.125322807481771]
+         Current function value: -0.780109
+         Iterations: 50
+         Function evaluations: 22252
+2023-12-09 09:37:08 end predict
+2023-12-09 09:37:08 {'hist': 180, 'p': 80.0, 'd': 0, 'q': 0, 'use_exog': True} [1.166917416482308]
+Optimization terminated successfully.
+         Current function value: -0.766509
+         Iterations: 49
+         Function evaluations: 26919
+2023-12-09 09:50:52 end predict
+2023-12-09 09:50:52 {'hist': 180, 'p': 100.0, 'd': 0, 'q': 0, 'use_exog': True} [1.1884694244871066]
+Optimization terminated successfully.
+         Current function value: -0.761348
+         Iterations: 43
+         Function evaluations: 27972
+2023-12-09 10:09:26 end predict
+2023-12-09 10:09:26 {'hist': 180, 'p': 120.0, 'd': 0, 'q': 0, 'use_exog': True} [1.240619811635618]
+         Current function value: -0.774421
+         Iterations: 50
+         Function evaluations: 37883
+2023-12-09 10:44:44 end predict
+2023-12-09 10:44:44 {'hist': 180, 'p': 140.0, 'd': 0, 'q': 0, 'use_exog': True} [1.2364937517612655]
+         Current function value: -0.767605
+         Iterations: 50
+         Function evaluations: 43079
+2023-12-09 11:37:14 end predict
+2023-12-09 11:37:14 {'hist': 180, 'p': 160.0, 'd': 0, 'q': 0, 'use_exog': True} [1.270061297963627]
