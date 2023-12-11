@@ -1,0 +1,111 @@
+2023-12-11 01:18:56 ohio 588 arimax arx DEC_8_2023 test None 60 1
+Optimization terminated successfully.
+         Current function value: -0.653728
+         Iterations: 10
+         Function evaluations: 1277
+2023-12-11 01:19:19 end predict
+2023-12-11 01:19:19 {'hist': 180, 'p': 20.0, 'd': 0, 'q': 0, 'use_exog': True} [0.658856704283826]
+Optimization terminated successfully.
+         Current function value: -0.657731
+         Iterations: 22
+         Function evaluations: 5116
+2023-12-11 01:20:29 end predict
+2023-12-11 01:20:29 {'hist': 180, 'p': 40.0, 'd': 0, 'q': 0, 'use_exog': True} [0.6585955867557559]
+Optimization terminated successfully.
+         Current function value: -0.655571
+         Iterations: 33
+         Function evaluations: 11170
+2023-12-11 01:23:41 end predict
+2023-12-11 01:23:41 {'hist': 180, 'p': 60.0, 'd': 0, 'q': 0, 'use_exog': True} [0.655139554646592]
+Optimization terminated successfully.
+         Current function value: -0.653574
+         Iterations: 39
+         Function evaluations: 17289
+2023-12-11 01:30:07 end predict
+2023-12-11 01:30:07 {'hist': 180, 'p': 80.0, 'd': 0, 'q': 0, 'use_exog': True} [0.6577521391357848]
+Optimization terminated successfully.
+         Current function value: -0.654909
+         Iterations: 32
+         Function evaluations: 17468
+2023-12-11 01:38:54 end predict
+2023-12-11 01:38:54 {'hist': 180, 'p': 100.0, 'd': 0, 'q': 0, 'use_exog': True} [0.6651513617708171]
+Optimization terminated successfully.
+         Current function value: -0.656234
+         Iterations: 34
+         Function evaluations: 22065
+2023-12-11 01:53:05 end predict
+2023-12-11 01:53:05 {'hist': 180, 'p': 120.0, 'd': 0, 'q': 0, 'use_exog': True} [0.666591772146188]
+Optimization terminated successfully.
+         Current function value: -0.658753
+         Iterations: 36
+         Function evaluations: 27137
+2023-12-11 02:17:15 end predict
+2023-12-11 02:17:15 {'hist': 180, 'p': 140.0, 'd': 0, 'q': 0, 'use_exog': True} [0.6664967128424927]
+Optimization terminated successfully.
+         Current function value: -0.657057
+         Iterations: 30
+         Function evaluations: 25767
+2023-12-11 02:46:29 end predict
+2023-12-11 02:46:29 {'hist': 180, 'p': 160.0, 'd': 0, 'q': 0, 'use_exog': True} [0.6677495390887159]
+Optimization terminated successfully.
+         Current function value: -0.661004
+         Iterations: 43
+         Function evaluations: 41479
+2023-12-11 03:45:22 end predict
+2023-12-11 03:45:22 {'hist': 180, 'p': 180.0, 'd': 0, 'q': 0, 'use_exog': True} [0.6700470783431373]
+Optimization terminated successfully.
+         Current function value: -0.656262
+         Iterations: 24
+         Function evaluations: 6855
+2023-12-11 03:47:17 end predict
+2023-12-11 03:47:17 {'hist': 180, 'p': 50.0, 'd': 0, 'q': 0, 'use_exog': True} [0.65705706058144]
+Optimization terminated successfully.
+         Current function value: -0.658082
+         Iterations: 30
+         Function evaluations: 9331
+2023-12-11 03:50:03 end predict
+2023-12-11 03:50:03 {'hist': 180, 'p': 55.0, 'd': 0, 'q': 0, 'use_exog': True} [0.6564870526876335]
+Optimization terminated successfully.
+         Current function value: -0.655571
+         Iterations: 33
+         Function evaluations: 11170
+2023-12-11 03:53:16 end predict
+2023-12-11 03:53:16 {'hist': 180, 'p': 60.0, 'd': 0, 'q': 0, 'use_exog': True} [0.655139554646592]
+Optimization terminated successfully.
+         Current function value: -0.654518
+         Iterations: 29
+         Function evaluations: 10544
+2023-12-11 03:56:46 end predict
+2023-12-11 03:56:46 {'hist': 180, 'p': 65.0, 'd': 0, 'q': 0, 'use_exog': True} [0.6639091060458896]
+Optimization terminated successfully.
+         Current function value: -0.645231
+         Iterations: 25
+         Function evaluations: 9743
+2023-12-11 04:00:07 end predict
+2023-12-11 04:00:07 {'hist': 180, 'p': 70.0, 'd': 0, 'q': 0, 'use_exog': True} [0.6511448733834689]
+Optimization terminated successfully.
+         Current function value: -0.645231
+         Iterations: 25
+         Function evaluations: 9743
+2023-12-11 04:03:32 end predict
+Optimization terminated successfully.
+         Current function value: -0.622999
+         Iterations: 38
+         Function evaluations: 14857
+2023-12-11 04:08:38 end predict
+Optimization terminated successfully.
+         Current function value: -0.607108
+         Iterations: 33
+         Function evaluations: 12860
+2023-12-11 04:13:08 end predict
+Optimization terminated successfully.
+         Current function value: -0.651156
+         Iterations: 43
+         Function evaluations: 16884
+2023-12-11 04:19:00 end predict
+Optimization terminated successfully.
+         Current function value: -0.627425
+         Iterations: 36
+         Function evaluations: 14090
+2023-12-11 04:23:48 end predict
+2023-12-11 04:23:48 ({'RMSE': 32.50717313680086, 'MAPE': 14.630965080845986, 'MASE': 0.8973089352177253, 'TG': 5.0, 'CG_EGA_AP': 0.8144189383070302, 'CG_EGA_BE': 0.13472022955523671, 'CG_EGA_EP': 0.050860832137733146, 'CG_EGA_AP_hypo': 0.0, 'CG_EGA_BE_hypo': 0.0, 'CG_EGA_EP_hypo': 1.0, 'CG_EGA_AP_eu': 0.8381266490765171, 'CG_EGA_BE_eu': 0.11517150395778364, 'CG_EGA_EP_eu': 0.046701846965699206, 'CG_EGA_AP_hyper': 0.7886435331230283, 'CG_EGA_BE_hyper': 0.1585173501577287, 'CG_EGA_EP_hyper': 0.05283911671924291, 'P_EGA_A+B': 0.9901004304160688, 'P_EGA_A': 0.7813486370157819, 'P_EGA_B': 0.20875179340028693, 'P_EGA_C': 0.0, 'P_EGA_D': 0.009899569583931133, 'P_EGA_E': 0.0, 'R_EGA_A+B': 0.8210186513629841, 'R_EGA_A': 0.5675035868005739, 'R_EGA_B': 0.25351506456241035, 'R_EGA_uC': 0.054519368723098996, 'R_EGA_lC': 0.03794835007173601, 'R_EGA_uD': 0.014275466284074606, 'R_EGA_lD': 0.030559540889526542, 'R_EGA_uE': 0.020444763271162122, 'R_EGA_lE': 0.021233859397417502}, {'RMSE': 0.29381959371129995, 'MAPE': 0.062017202787064366, 'MASE': 0.006047839762154093, 'TG': 0.0, 'CG_EGA_AP': 0.004690898916577302, 'CG_EGA_BE': 0.0029629664889617483, 'CG_EGA_EP': 0.002059210917418554, 'CG_EGA_AP_hypo': 0.0, 'CG_EGA_BE_hypo': 0.0, 'CG_EGA_EP_hypo': 0.0, 'CG_EGA_AP_eu': 0.002151649924841684, 'CG_EGA_BE_eu': 0.0017501977785516637, 'CG_EGA_EP_eu': 0.0014085855213761616, 'CG_EGA_AP_hyper': 0.008667906412639812, 'CG_EGA_BE_hyper': 0.005620987281137371, 'CG_EGA_EP_hyper': 0.003631187518366351, 'P_EGA_A+B': 0.001391012871568516, 'P_EGA_A': 0.00275600756274011, 'P_EGA_B': 0.004083285357462759, 'P_EGA_C': 0.0, 'P_EGA_D': 0.001391012871568531, 'P_EGA_E': 0.0, 'R_EGA_A+B': 0.004292188034907176, 'R_EGA_A': 0.004651238185781162, 'R_EGA_B': 0.0012300163701206843, 'R_EGA_uC': 0.002016279673250386, 'R_EGA_lC': 0.002995783790218237, 'R_EGA_uD': 0.0008608321377331418, 'R_EGA_lD': 0.0010973499670572705, 'R_EGA_uE': 0.0006001865326643303, 'R_EGA_lE': 0.0007659310080366808})
