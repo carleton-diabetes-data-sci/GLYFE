@@ -1,6 +1,6 @@
 #!/bin/bash
-DATASET="ohio"
-SUBJECTS="559 563 570 575 588 591"
+DATASET="t1dms"
+SUBJECTS="1 2 3 4 5 6 7 8 9 10"
 PHS="30 60 120"
 EXP="DEC_8_2023"
 MODE="test"
