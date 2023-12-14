@@ -1,21 +1,68 @@
+'''
+Code by Lucie Wolf, Winter 2024
+
+This code takes the outputs from the outputs folder and puts them into a dataframe/series.
+
+To run the code: 
+    python interpret_outputs.py --overwrite
+        Use with caution. Overwrites the previous dataframe completely.
+    python interpret_outputs.py --append
+        Suggested. Appends the new dictionaries to the previous dataframe, throws an error and does not continue if two dictionaries have the same experiment name.
+    Exactly one of --overwrite or --append must be used.
+
+    python interpret_outputs.py --hide_file_errors
+        This is an optional flag. If used, it will not show errors with specific files, though it will show other errors.
+'''
+
 import pandas as pd
-import os
 import ast
+import os
+import argparse
 
 
-def loop_files():
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--append', action='store_true')
+    parser.add_argument('--overwrite', action='store_true')
+    parser.add_argument('--hide_file_errors', action='store_true')
+    args = parser.parse_args()
+
+    if args.overwrite == args.append:
+        raise Exception('Must have exactly one of the overwrite and append flags set.')
+
+    if args.overwrite:
+        print("Overwriting previous dataframe.")
+    else:
+        print("Adding to previous dataframe.")
+    
+    return args.overwrite, args.hide_file_errors
+
+def loop_all_files(hide_file_errors):
     # Get all the dictionaries from the outputs folder
-    all_dicts = {}
+    dicts = {}
     for dir_path, _, file_names in os.walk('outputs'):
         for file_name in file_names:
             file_path = os.path.join(dir_path, file_name)
-            file_dicts = process_txt(file_path)
+            
+            try:
+                mean_dicts, std_dicts = process_single_file(file_path) # the two dictionaries outputted are the means and stds respectively
+                
+                for metric in mean_dicts.keys():
+                    key_name_mean = f'{file_path}/{metric}/mean'
+                    key_name_std = f'{file_path}/{metric}/std'
+                    dicts[key_name_mean] = mean_dicts[metric]
+                    dicts[key_name_std] = std_dicts[metric]
+            
+            except Exception as e:
+                if not hide_file_errors:
+                    print(f'Error with file: {file_path}')
+                    print('No dictionaries/outputs found')
+                    print(e)
+                    print()
+    return dicts
 
-            all_dicts[file_path] = file_dicts
-    return all_dicts
-
-def process_txt(file_path):
-    # Get all the dictionaries from a specific txt file
+def process_single_file(file_path):
+    # Get the first dictionary from a specific txt file
     f = open(file_path, "r")
     output = f.read()
     f.close()
@@ -28,13 +75,11 @@ def process_txt(file_path):
         file_dicts = get_dicts_from_str(output[start:end])
         return file_dicts
     
-    except Exception as e:
-        print('Error with file: ' + file_path)
-        print(e)
-        return []
+    except Exception:
+        pass
 
 def get_dicts_from_str(dicts_str):
-    # Get all the dictionaries from a string of dictionaries
+    # Get all the dictionaries from one string of dictionaries
     file_dicts = []
 
     starts = get_char_inds(dicts_str, '{')
@@ -48,11 +93,83 @@ def get_dicts_from_str(dicts_str):
     
     return file_dicts
 
+def get_experiment_name(file_path):
+    # Get the experiment name from the file path
+    return file_path.split('/')[2]
+
 def get_char_inds(s, char):
     # Get all the indices of a character in a string
     return [i for i, ltr in enumerate(s) if ltr == char]
 
-def main():
-    all_dicts = loop_files()
+def get_index_tuples(dicts):
+    # Get the index tuples for the dataframe/series
+    tuples = []
+    for key in dicts.keys():
+        components = key.split('/')[1:] # remove 'outputs' from the start and split the file path by '/'
+        components[2] = int(components[2][3:]) # change from 'ph-x' to 'x'
+        components[3] = components[3][:-4] # change from 'patient.txt' to 'patient'
+        tuples.append(tuple(components))
+    return tuples
 
-main()
+def make_df(dicts):
+    # Make a single dataframe/series from the dictionaries
+    tuples = get_index_tuples(dicts)
+    col_names = ['model', 'experiment', 'ph', 'patient', 'metric', 'calculation']
+
+    df_index = pd.MultiIndex.from_tuples(tuples, names=col_names)
+    df = pd.Series(dicts.values(), index=df_index)
+    return df
+
+def append_to_df(hide_file_errors):
+    # Append the new dataframe to the old dataframe
+    try:
+        df_temp = pd.read_csv('outputs_df.csv')
+
+        num_cols = len(df_temp.columns) # Get the total number of columns
+        df_old = pd.read_csv('outputs_df.csv', index_col=list(range(num_cols - 1)))
+        df_old = df_old.squeeze()
+        df_old.name = None
+    except Exception:
+        print('No previous dataframe found. Creating new dataframe.')
+        return None, True
+    
+    all_dicts = loop_all_files(hide_file_errors)
+    df_new = make_df(all_dicts)
+
+    return combine_dfs(df_old, df_new), False
+    
+def combine_dfs(df1, df2):
+    # Combine two dataframes, throwing an error if there is a conflict
+    
+    # Check for conflicts
+    overlapping_indices = df1.index.intersection(df2.index)
+    for index in overlapping_indices:
+        if not df1.loc[index].round(5) == df2.loc[index].round(5):
+            raise Exception(f'Conflict: {index} is in both dataframes but the values are different.')
+
+    # Combine the dataframes
+    df_final = df1.combine_first(df2)
+    return df_final
+
+
+def create_new_df(hide_file_errors):
+    # Create a new dataframe/series from scratch
+    all_dicts = loop_all_files(hide_file_errors)
+    df = make_df(all_dicts)
+    return df
+
+
+
+def main():
+    overwrite, hide_file_errors = parse_args()
+    
+    if not overwrite:
+        df, overwrite = append_to_df(hide_file_errors) # if the previous dataframe is not found, create a new one
+    if overwrite:
+        df = create_new_df(hide_file_errors)
+    
+    df.to_csv('outputs_df.csv')
+    
+
+if __name__ == '__main__':
+    main()
