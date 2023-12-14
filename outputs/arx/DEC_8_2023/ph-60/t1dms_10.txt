@@ -1,0 +1,44 @@
+2023-12-14 14:17:39 t1dms 10 arimax arx DEC_8_2023 test None 60 1
+Optimization terminated successfully.
+         Current function value: -1.619113
+         Iterations: 24
+         Function evaluations: 3238
+2023-12-14 14:17:55 end predict
+2023-12-14 14:17:55 {'hist': 180, 'p': 20.0, 'd': 0, 'q': 0, 'use_exog': True} [0.7001923214845049]
+Optimization terminated successfully.
+         Current function value: -1.630986
+         Iterations: 24
+         Function evaluations: 5797
+2023-12-14 14:18:30 end predict
+2023-12-14 14:18:30 {'hist': 180, 'p': 40.0, 'd': 0, 'q': 0, 'use_exog': True} [0.6632635403923147]
+Optimization terminated successfully.
+         Current function value: -1.630466
+         Iterations: 49
+         Function evaluations: 17057
+2023-12-14 14:20:34 end predict
+2023-12-14 14:20:34 {'hist': 180, 'p': 60.0, 'd': 0, 'q': 0, 'use_exog': True} [0.7021874834066926]
+         Current function value: -1.585151
+         Iterations: 50
+         Function evaluations: 22319
+2023-12-14 14:24:01 end predict
+2023-12-14 14:24:01 {'hist': 180, 'p': 80.0, 'd': 0, 'q': 0, 'use_exog': True} [0.7500274542004992]
+         Current function value: -1.563078
+         Iterations: 50
+         Function evaluations: 27579
+2023-12-14 14:29:45 end predict
+2023-12-14 14:29:45 {'hist': 180, 'p': 100.0, 'd': 0, 'q': 0, 'use_exog': True} [0.7796979324479802]
+         Current function value: -1.561534
+         Iterations: 50
+         Function evaluations: 33020
+2023-12-14 14:38:15 end predict
+2023-12-14 14:38:15 {'hist': 180, 'p': 120.0, 'd': 0, 'q': 0, 'use_exog': True} [0.8135465588738454]
+         Current function value: -1.598408
+         Iterations: 50
+         Function evaluations: 38075
+2023-12-14 14:52:08 end predict
+2023-12-14 14:52:08 {'hist': 180, 'p': 140.0, 'd': 0, 'q': 0, 'use_exog': True} [0.8277737596887931]
+         Current function value: -1.599210
+         Iterations: 50
+         Function evaluations: 43475
+2023-12-14 15:12:26 end predict
+2023-12-14 15:12:26 {'hist': 180, 'p': 160.0, 'd': 0, 'q': 0, 'use_exog': True} [0.8502501263785548]

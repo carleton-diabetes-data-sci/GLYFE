@@ -1,0 +1,121 @@
+2023-12-14 05:23:31 t1dms 8 arimax ar DEC_8_2023 test None 120 1
+Optimization terminated successfully.
+         Current function value: -1.520672
+         Iterations: 2
+         Function evaluations: 73
+2023-12-14 05:23:32 end predict
+2023-12-14 05:23:32 {'hist': 180, 'd': 0, 'p': 10.0, 'q': 0, 'use_exog': False} [0.7626215504524327]
+Optimization terminated successfully.
+         Current function value: -1.848436
+         Iterations: 4
+         Function evaluations: 246
+2023-12-14 05:23:35 end predict
+2023-12-14 05:23:35 {'hist': 180, 'd': 0, 'p': 20.0, 'q': 0, 'use_exog': False} [0.7705503317240293]
+Optimization terminated successfully.
+         Current function value: -1.883883
+         Iterations: 4
+         Function evaluations: 334
+2023-12-14 05:23:37 end predict
+2023-12-14 05:23:37 {'hist': 180, 'd': 0, 'p': 30.0, 'q': 0, 'use_exog': False} [0.7926491199951216]
+Optimization terminated successfully.
+         Current function value: -1.891742
+         Iterations: 4
+         Function evaluations: 407
+2023-12-14 05:23:40 end predict
+2023-12-14 05:23:40 {'hist': 180, 'd': 0, 'p': 40.0, 'q': 0, 'use_exog': False} [0.7540265581962677]
+Optimization terminated successfully.
+         Current function value: -1.893125
+         Iterations: 4
+         Function evaluations: 489
+2023-12-14 05:23:44 end predict
+2023-12-14 05:23:44 {'hist': 180, 'd': 0, 'p': 50.0, 'q': 0, 'use_exog': False} [0.7693464925166024]
+Optimization terminated successfully.
+         Current function value: -1.896530
+         Iterations: 4
+         Function evaluations: 571
+2023-12-14 05:23:48 end predict
+2023-12-14 05:23:48 {'hist': 180, 'd': 0, 'p': 60.0, 'q': 0, 'use_exog': False} [0.7469302604491734]
+Optimization terminated successfully.
+         Current function value: -1.896628
+         Iterations: 4
+         Function evaluations: 654
+2023-12-14 05:23:52 end predict
+2023-12-14 05:23:52 {'hist': 180, 'd': 0, 'p': 70.0, 'q': 0, 'use_exog': False} [0.7470270375529799]
+Optimization terminated successfully.
+         Current function value: -1.896992
+         Iterations: 4
+         Function evaluations: 734
+2023-12-14 05:23:58 end predict
+2023-12-14 05:23:58 {'hist': 180, 'd': 0, 'p': 80.0, 'q': 0, 'use_exog': False} [0.7439724457053966]
+Optimization terminated successfully.
+         Current function value: -1.898221
+         Iterations: 4
+         Function evaluations: 815
+2023-12-14 05:24:04 end predict
+2023-12-14 05:24:04 {'hist': 180, 'd': 0, 'p': 90.0, 'q': 0, 'use_exog': False} [0.7407155741123347]
+Optimization terminated successfully.
+         Current function value: -1.898995
+         Iterations: 4
+         Function evaluations: 894
+2023-12-14 05:24:12 end predict
+2023-12-14 05:24:12 {'hist': 180, 'd': 0, 'p': 100.0, 'q': 0, 'use_exog': False} [0.7415674691056954]
+Optimization terminated successfully.
+         Current function value: -1.899070
+         Iterations: 4
+         Function evaluations: 975
+2023-12-14 05:24:22 end predict
+2023-12-14 05:24:22 {'hist': 180, 'd': 0, 'p': 110.0, 'q': 0, 'use_exog': False} [0.7424200077060354]
+Optimization terminated successfully.
+         Current function value: -1.899754
+         Iterations: 4
+         Function evaluations: 1050
+2023-12-14 05:24:32 end predict
+2023-12-14 05:24:32 {'hist': 180, 'd': 0, 'p': 120.0, 'q': 0, 'use_exog': False} [0.7424649985465362]
+Optimization terminated successfully.
+         Current function value: -1.899804
+         Iterations: 4
+         Function evaluations: 1132
+2023-12-14 05:24:45 end predict
+2023-12-14 05:24:45 {'hist': 180, 'd': 0, 'p': 130.0, 'q': 0, 'use_exog': False} [0.742044174972881]
+Optimization terminated successfully.
+         Current function value: -1.900918
+         Iterations: 4
+         Function evaluations: 1214
+2023-12-14 05:25:01 end predict
+2023-12-14 05:25:01 {'hist': 180, 'd': 0, 'p': 140.0, 'q': 0, 'use_exog': False} [0.7383321370033936]
+Optimization terminated successfully.
+         Current function value: -1.900946
+         Iterations: 4
+         Function evaluations: 1296
+2023-12-14 05:25:19 end predict
+2023-12-14 05:25:19 {'hist': 180, 'd': 0, 'p': 150.0, 'q': 0, 'use_exog': False} [0.7386445220325994]
+Optimization terminated successfully.
+         Current function value: -1.900968
+         Iterations: 4
+         Function evaluations: 1379
+2023-12-14 05:25:41 end predict
+2023-12-14 05:25:41 {'hist': 180, 'd': 0, 'p': 160.0, 'q': 0, 'use_exog': False} [0.738088912842145]
+Optimization terminated successfully.
+         Current function value: -1.900971
+         Iterations: 4
+         Function evaluations: 1455
+2023-12-14 05:26:09 end predict
+2023-12-14 05:26:09 {'hist': 180, 'd': 0, 'p': 170.0, 'q': 0, 'use_exog': False} [0.7380492663527563]
+Optimization terminated successfully.
+         Current function value: -1.901146
+         Iterations: 4
+         Function evaluations: 1540
+2023-12-14 05:26:40 end predict
+2023-12-14 05:26:40 {'hist': 180, 'd': 0, 'p': 180.0, 'q': 0, 'use_exog': False} [0.736255243301842]
+Optimization terminated successfully.
+         Current function value: -1.900985
+         Iterations: 4
+         Function evaluations: 1498
+2023-12-14 05:27:10 end predict
+2023-12-14 05:27:10 {'hist': 180, 'd': 0, 'p': 175.0, 'q': 0, 'use_exog': False} [0.7376048028836866]
+Optimization terminated successfully.
+         Current function value: -1.901146
+         Iterations: 4
+         Function evaluations: 1540
+2023-12-14 05:27:42 end predict
+2023-12-14 05:27:42 {'hist': 180, 'd': 0, 'p': 180.0, 'q': 0, 'use_exog': False} [0.736255243301842]
