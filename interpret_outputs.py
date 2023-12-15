@@ -105,30 +105,47 @@ def get_index_tuples(dicts):
     # Get the index tuples for the dataframe/series
     tuples = []
     for key in dicts.keys():
-        components = key.split('/')[1:] # remove 'outputs' from the start and split the file path by '/'
-        components[2] = int(components[2][3:]) # change from 'ph-x' to 'x'
-        components[3] = components[3][:-4] # change from 'patient.txt' to 'patient'
-        tuples.append(tuple(components))
+        _, model, experiment, ph, population_patient, metric, calculation = key.split('/') # remove 'outputs' from the start and split the file path by '/'
+        ph = int(ph[3:]) # change from 'ph-x' to 'x'
+        population, patient = population_patient.split('_') # get the population and patient from the experiment name
+        patient = int(patient[:-4]) # change from 'patient.txt' to 'patient'
+        tuples.append(tuple([model, experiment, ph, population, patient, metric, calculation]))
     return tuples
 
 def make_df(dicts):
     # Make a single dataframe/series from the dictionaries
     tuples = get_index_tuples(dicts)
-    col_names = ['model', 'experiment', 'ph', 'patient', 'metric', 'calculation']
+    col_names = ['model', 'experiment', 'ph', 'population', 'patient', 'metric', 'calculation']
 
     df_index = pd.MultiIndex.from_tuples(tuples, names=col_names)
     df = pd.Series(dicts.values(), index=df_index)
     return df
 
+def import_df(file_name):
+    # Import the dataframe
+    num_cols = len(pd.read_csv(file_name).columns) # Get the total number of columns
+    df = pd.read_csv(file_name, index_col=list(range(num_cols - 1)))
+    df = df.squeeze()
+    df.name = None
+    return df
+
+def combine_dfs(df1, df2):
+    # Combine two dataframes, throwing an error if there is a conflict
+    
+    # Check for conflicts
+    overlapping_indices = df1.index.intersection(df2.index)
+    for index in overlapping_indices:
+        if abs(df1.loc[index] - df2.loc[index]) >= 10 ** -5: # if they are not the same value (or are slightly off since python struggles with exact values with floats)
+            raise Exception(f'Conflict: {index} is in both dataframes but the values are different.')
+
+    # Combine the dataframes
+    df_final = df1.combine_first(df2)
+    return df_final
+
 def append_to_df(hide_file_errors):
     # Append the new dataframe to the old dataframe
     try:
-        df_temp = pd.read_csv('outputs_df.csv')
-
-        num_cols = len(df_temp.columns) # Get the total number of columns
-        df_old = pd.read_csv('outputs_df.csv', index_col=list(range(num_cols - 1)))
-        df_old = df_old.squeeze()
-        df_old.name = None
+        df_old = import_df('outputs_df.csv')
     except Exception:
         print('No previous dataframe found. Creating new dataframe.')
         return None, True
@@ -137,20 +154,6 @@ def append_to_df(hide_file_errors):
     df_new = make_df(all_dicts)
 
     return combine_dfs(df_old, df_new), False
-    
-def combine_dfs(df1, df2):
-    # Combine two dataframes, throwing an error if there is a conflict
-    
-    # Check for conflicts
-    overlapping_indices = df1.index.intersection(df2.index)
-    for index in overlapping_indices:
-        if not df1.loc[index].round(5) == df2.loc[index].round(5):
-            raise Exception(f'Conflict: {index} is in both dataframes but the values are different.')
-
-    # Combine the dataframes
-    df_final = df1.combine_first(df2)
-    return df_final
-
 
 def create_new_df(hide_file_errors):
     # Create a new dataframe/series from scratch
