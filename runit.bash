@@ -7,15 +7,15 @@ MODE="test"
 PLOT="1"
 
 declare -A PARAMS_MODELS
-PARAMS_MODELS["ar"]="arimax"
-PARAMS_MODELS["arx"]="arimax"
-PARAMS_MODELS["base"]="base"
-PARAMS_MODELS["elm"]="elm"
-PARAMS_MODELS["ffnn"]="ffnn"
+# PARAMS_MODELS["ar"]="arimax"
+# PARAMS_MODELS["arx"]="arimax"
+# PARAMS_MODELS["base"]="base"
+# PARAMS_MODELS["elm"]="elm"
+# PARAMS_MODELS["ffnn"]="ffnn"
 PARAMS_MODELS["gp"]="gp"
-PARAMS_MODELS["lstm"]="lstm"
-PARAMS_MODELS["poly"]="poly"
-PARAMS_MODELS["svr"]="svr"
+# PARAMS_MODELS["lstm"]="lstm"
+# PARAMS_MODELS["poly"]="poly"
+# PARAMS_MODELS["svr"]="svr"
 
 for SUBJECT in $SUBJECTS; do 
     echo $SUBJECT

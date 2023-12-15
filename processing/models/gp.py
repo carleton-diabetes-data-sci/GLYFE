@@ -18,8 +18,7 @@ class GP(Predictor):
         x, y, t = self._str2dataset("train")
 
         # define the GP kernel
-        kernel = DotProduct(sigma_0=self.params["sigma_0"],
-                            sigma_0_bounds=(self.params["sigma_0"],self.params["sigma_0"]))
+        kernel = DotProduct(sigma_0=self.params["sigma_0"], sigma_0_bounds="fixed")
 
         # define the model
         self.model = GaussianProcessRegressor(kernel=kernel,
