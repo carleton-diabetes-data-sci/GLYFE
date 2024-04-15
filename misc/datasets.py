@@ -29,4 +29,9 @@ datasets = {
         "subjects": ["1", "2", "3", "4", "5", "6"],
         "n_days_test": 5,
     },
+    "tidepool": {
+        "glucose_freq": 5,
+        "subjects": ["0"],
+        "n_days_test": 60,
+    },
 }

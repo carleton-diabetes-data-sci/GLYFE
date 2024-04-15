@@ -3,6 +3,7 @@ from misc import constants as cs
 from preprocessing.cleaning.nans import remove_nans, fill_nans
 from preprocessing.loading.loading_ohio import load_ohio
 from preprocessing.loading.loading_t1dms import load_t1dms
+from preprocessing.loading.loading_tidepool import load_tidepool
 import misc.datasets
 from preprocessing.resampling import resample
 from preprocessing.samples_creation import create_samples
@@ -56,12 +57,42 @@ def preprocessing_t1dms(dataset, subject, ph, hist, day_len, n_days_test):
     train, valid, test, scalers = standardize(train, valid, test)
     return train, valid, test, scalers
 
+def preprocessing_tidepool(dataset, subject, ph, hist, day_len, n_days_test):
+    """
+    Tidepool dataset preprocessing pipeline:
+    ?
+
+    :param dataset: name of the dataset, e.g. "tidepool"
+    :param subject: id of the subject, e.g. "1"
+    :param ph: prediction horizon, e.g. 30
+    :param hist: history length, e.g. 60
+    :param day_len: length of a day normalized by sampling frequency, e.g. 1440 (1440/1)
+    :return: training_old folds, validation folds, testing folds, list of scaler (one per fold)
+    """
+    data = load_tidepool(dataset, subject)
+    data = resample(data, cs.freq)
+    data = create_samples(data, ph, hist, day_len)
+    data = fill_nans(data, day_len, n_days_test)
+    train, valid, test = split(data, day_len, n_days_test, cs.cv)
+    print("Printing heads of split dataset")
+    print("Train")
+    print(train[0].iloc[100:110])
+    print("Valid")
+    print(valid[0].iloc[100:110])
+    print("Test")
+    print(test[0].iloc[100:110])
+    [train, valid, test] = [remove_nans(set) for set in [train, valid, test]]
+    train, valid, test, scalers = standardize(train, valid, test)
+
+    return train, valid, test, scalers
+
 preprocessing_per_dataset = {
     "t1dms": preprocessing_t1dms,
     "t1dms_adult": preprocessing_t1dms,
     "t1dms_adolescent": preprocessing_t1dms,
     "t1dms_child": preprocessing_t1dms,
     "ohio": preprocessing_ohio,
+    "tidepool": preprocessing_tidepool,
 }
 
 
