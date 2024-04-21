@@ -31,7 +31,7 @@ datasets = {
     },
     "tidepool": {
         "glucose_freq": 5,
-        "subjects": ["0"],
+        "subjects": ["0", "fa6d", "fcb9"],
         "n_days_test": 60,
     },
 }
