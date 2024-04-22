@@ -8,8 +8,9 @@
         // "-m 4gb"
     ],
     "mounts": [
-        "source=/data/ohio/OhioT1DM/2018/train,target=/workspaces/GLYFE/data/ohio/OhioT1DM-training,readonly,type=bind,consistency=cached",
-        "source=/data/ohio/OhioT1DM/2018/test,target=/workspaces/GLYFE/data/ohio/OhioT1DM-testing,readonly,type=bind,consistency=cached"
+        // "source=/data/ohio/OhioT1DM/2018/train,target=/workspaces/GLYFE/data/ohio/OhioT1DM-training,readonly,type=bind,consistency=cached",
+        // "source=/data/ohio/OhioT1DM/2018/test,target=/workspaces/GLYFE/data/ohio/OhioT1DM-testing,readonly,type=bind,consistency=cached"
+        "source=/data,target=/workspaces/GLYFE/data,type=bind,consistency=cached"
       ]
     "settings": {
         "terminal.integrated.profiles.linux": {
