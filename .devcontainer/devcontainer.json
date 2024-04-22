@@ -1,0 +1,33 @@
+{
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "runArgs": [
+        "--shm-size=2gb" // std 64mb (!) are not enough
+        // "--cpus=4",
+        // "-m 4gb"
+    ],
+    "mounts": [
+        "source=/data/ohio/OhioT1DM/2018/train,target=/workspaces/GLYFE/data/ohio/OhioT1DM-training,readonly,type=bind,consistency=cached",
+        "source=/data/ohio/OhioT1DM/2018/test,target=/workspaces/GLYFE/data/ohio/OhioT1DM-testing,readonly,type=bind,consistency=cached"
+      ]
+    "settings": {
+        "terminal.integrated.profiles.linux": {
+            "bash (login)": {
+                "path": "/bin/bash",
+                "args": [
+                    "-li"
+                ]
+            }
+        },
+        "terminal.integrated.defaultProfile.linux": "bash (login)"
+    }
+    // "extensions": [
+    //     "donjayamanne.git-extension-pack",
+    //     "mhutchie.git-graph",
+    //     "ms-python.python",
+    //     "ms-vscode.cpptools",
+    //     "ms-vscode.cpptools-extension-pack",
+    //     "ms-vscode.cpptools-themes"
+    // ]
+}
