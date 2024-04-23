@@ -126,3 +126,35 @@ Optimization terminated successfully.
          Function evaluations: 6799
 2024-04-23 08:46:36 end predict
 2024-04-23 08:46:36 {'hist': 180, 'p': 125.0, 'd': 0, 'q': 0, 'use_exog': True} [1.0192349400656129]
+Optimization terminated successfully.
+         Current function value: -0.131692
+         Iterations: 10
+         Function evaluations: 7059
+2024-04-23 09:26:50 end predict
+2024-04-23 09:26:50 {'hist': 180, 'p': 130.0, 'd': 0, 'q': 0, 'use_exog': True} [1.0197423554136142]
+Optimization terminated successfully.
+         Current function value: -0.131655
+         Iterations: 12
+         Function evaluations: 7860
+2024-04-23 10:02:28 end predict
+Optimization terminated successfully.
+         Current function value: -0.111716
+         Iterations: 10
+         Function evaluations: 6566
+2024-04-23 10:32:10 end predict
+Optimization terminated successfully.
+         Current function value: -0.221071
+         Iterations: 7
+         Function evaluations: 4547
+2024-04-23 10:52:38 end predict
+Optimization terminated successfully.
+         Current function value: -0.164890
+         Iterations: 8
+         Function evaluations: 5211
+2024-04-23 11:15:37 end predict
+Optimization terminated successfully.
+         Current function value: -0.142046
+         Iterations: 8
+         Function evaluations: 4268
+2024-04-23 11:36:10 end predict
+2024-04-23 11:36:11 ({'RMSE': 38.23539674569254, 'MAPE': 28.792770107772945, 'MASE': 0.8354605588844292, 'TG': 0.0, 'CG_EGA_AP': 0.8471749121384159, 'CG_EGA_BE': 0.07806163828061638, 'CG_EGA_EP': 0.07476344958096784, 'CG_EGA_AP_hypo': 0.0030010718113612, 'CG_EGA_BE_hypo': 0.0, 'CG_EGA_EP_hypo': 0.996998928188639, 'CG_EGA_AP_eu': 0.916107843886046, 'CG_EGA_BE_eu': 0.07689605132513556, 'CG_EGA_EP_eu': 0.006996104788818454, 'CG_EGA_AP_hyper': 0.6979220779220779, 'CG_EGA_BE_hyper': 0.1924675324675325, 'CG_EGA_EP_hyper': 0.1096103896103896, 'P_EGA_A+B': 0.9299945931332794, 'P_EGA_A': 0.5579075425790754, 'P_EGA_B': 0.3720870505542038, 'P_EGA_C': 0.002068126520681265, 'P_EGA_D': 0.06724790483914571, 'P_EGA_E': 0.0007569613409029467, 'R_EGA_A+B': 0.9092187077588537, 'R_EGA_A': 0.7178967288456339, 'R_EGA_B': 0.19132197891321978, 'R_EGA_uC': 0.003906461205731278, 'R_EGA_lC': 0.0015544741822114086, 'R_EGA_uD': 0.030738037307380374, 'R_EGA_lD': 0.048526628818599614, 'R_EGA_uE': 0.0037712895377128956, 'R_EGA_lE': 0.002284401189510679}, {'RMSE': 0.34004597160038236, 'MAPE': 0.21364378394720365, 'MASE': 0.004877933405891478, 'TG': 0.0, 'CG_EGA_AP': 0.001252363862871116, 'CG_EGA_BE': 0.0006045060766422775, 'CG_EGA_EP': 0.0006844546580790589, 'CG_EGA_AP_hypo': 0.0004287245444801715, 'CG_EGA_BE_hypo': 0.0, 'CG_EGA_EP_hypo': 0.00042872454448015233, 'CG_EGA_AP_eu': 0.0013011862484715135, 'CG_EGA_BE_eu': 0.0005804628427403923, 'CG_EGA_EP_eu': 0.0007827772382383844, 'CG_EGA_AP_hyper': 0.0027974882114984363, 'CG_EGA_BE_hyper': 0.0026488413057624864, 'CG_EGA_EP_hyper': 0.0006362311020216049, 'P_EGA_A+B': 0.00011627906551827249, 'P_EGA_A': 0.0031825393473864498, 'P_EGA_B': 0.0030861204533727156, 'P_EGA_C': 0.00022045831887402125, 'P_EGA_D': 8.549006921244839e-05, 'P_EGA_E': 2.703433360367667e-05, 'R_EGA_A+B': 0.0014415917391613616, 'R_EGA_A': 0.0037320601345802455, 'R_EGA_B': 0.0022976798056926727, 'R_EGA_uC': 0.0007909564119128302, 'R_EGA_lC': 0.00022210971512780461, 'R_EGA_uD': 0.00013105379446921693, 'R_EGA_lD': 0.0005147183769845849, 'R_EGA_uE': 0.0003760591441806856, 'R_EGA_lE': 0.00042830439355920146})
