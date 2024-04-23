@@ -1,0 +1,160 @@
+2024-04-22 07:27:41 tidepool fcb9 arimax arx FIRST_TIDEPOOL test None 30 1
+             datetime  glucose  CHO  insulin
+0 2017-10-14 14:00:00    165.0  NaN      NaN
+1 2017-10-14 14:05:00    163.0  NaN      NaN
+2 2017-10-14 14:10:00    159.0  NaN      NaN
+3 2017-10-14 14:15:00    158.0  NaN      NaN
+4 2017-10-14 14:20:00    158.0  NaN      NaN
+Printing heads of split dataset
+Train
+               datetime   time   glucose_0  ...  insulin_34  insulin_35      y
+100 2017-10-15 08:20:00  100.0  120.545455  ...         0.0         0.0   98.0
+101 2017-10-15 08:25:00  101.0  120.340909  ...         0.0         0.0  146.0
+102 2017-10-15 08:30:00  102.0  120.136364  ...         0.0         0.0  152.0
+103 2017-10-15 08:35:00  103.0  119.931818  ...         0.0         0.0  158.0
+104 2017-10-15 08:40:00  104.0  119.727273  ...         0.0         0.0  158.0
+105 2017-10-15 08:45:00  105.0  119.522727  ...         0.0         0.0  149.0
+106 2017-10-15 08:50:00  106.0  119.318182  ...         0.0         0.0  140.0
+107 2017-10-15 08:55:00  107.0  119.113636  ...         0.0         0.0  124.0
+108 2017-10-15 09:00:00  108.0  118.909091  ...         0.0         0.0  116.0
+109 2017-10-15 09:05:00  109.0  118.704545  ...         0.0         0.0  109.0
+
+[10 rows x 111 columns]
+Valid
+               datetime   time  glucose_0  ...  insulin_34  insulin_35      y
+100 2017-10-19 08:20:00  100.0      131.0  ...         0.0         0.0  139.0
+101 2017-10-19 08:25:00  101.0      131.0  ...         0.0         0.0  139.0
+102 2017-10-19 08:30:00  102.0      131.0  ...         0.0         0.0  139.0
+103 2017-10-19 08:35:00  103.0      131.0  ...         0.0         0.0  138.0
+104 2017-10-19 08:40:00  104.0      130.0  ...         0.0         0.0  138.0
+105 2017-10-19 08:45:00  105.0      130.0  ...         0.0         0.0  138.0
+106 2017-10-19 08:50:00  106.0      129.0  ...         0.0         0.0  139.0
+107 2017-10-19 08:55:00  107.0      129.0  ...         0.0         0.0  138.0
+108 2017-10-19 09:00:00  108.0      129.0  ...         0.0         0.0  138.0
+109 2017-10-19 09:05:00  109.0      128.0  ...         0.0         0.0  139.0
+
+[10 rows x 111 columns]
+Test
+                 datetime   time  glucose_0  ...  insulin_34  insulin_35   y
+84443 2018-08-03 08:20:00  100.0      174.0  ...         0.0         0.0 NaN
+84444 2018-08-03 08:25:00  101.0      176.0  ...         0.0         0.0 NaN
+84445 2018-08-03 08:30:00  102.0      177.0  ...         0.0         0.0 NaN
+84446 2018-08-03 08:35:00  103.0      178.0  ...         0.0         0.0 NaN
+84447 2018-08-03 08:40:00  104.0      176.0  ...         0.0         0.0 NaN
+84448 2018-08-03 08:45:00  105.0      175.0  ...         0.0         0.0 NaN
+84449 2018-08-03 08:50:00  106.0      167.0  ...         0.0         0.0 NaN
+84450 2018-08-03 08:55:00  107.0      147.0  ...         0.0         0.0 NaN
+84451 2018-08-03 09:00:00  108.0      144.0  ...         0.0         0.0 NaN
+84452 2018-08-03 09:05:00  109.0      140.0  ...         0.0         0.0 NaN
+
+[10 rows x 111 columns]
+Optimization terminated successfully.
+         Current function value: -0.066004
+         Iterations: 5
+         Function evaluations: 626
+2024-04-22 07:29:27 end predict
+2024-04-22 07:29:27 {'hist': 180, 'p': 20.0, 'd': 0, 'q': 0, 'use_exog': True} [0.6205736184416852]
+Optimization terminated successfully.
+         Current function value: -0.067019
+         Iterations: 7
+         Function evaluations: 1615
+2024-04-22 07:32:11 end predict
+2024-04-22 07:32:11 {'hist': 180, 'p': 40.0, 'd': 0, 'q': 0, 'use_exog': True} [0.6191310632828464]
+Optimization terminated successfully.
+         Current function value: -0.067374
+         Iterations: 7
+         Function evaluations: 2329
+2024-04-22 07:36:56 end predict
+2024-04-22 07:36:56 {'hist': 180, 'p': 60.0, 'd': 0, 'q': 0, 'use_exog': True} [0.6167394064388715]
+Optimization terminated successfully.
+         Current function value: -0.067563
+         Iterations: 11
+         Function evaluations: 4848
+2024-04-22 07:48:32 end predict
+2024-04-22 07:48:32 {'hist': 180, 'p': 80.0, 'd': 0, 'q': 0, 'use_exog': True} [0.6153866277524922]
+Optimization terminated successfully.
+         Current function value: -0.067661
+         Iterations: 14
+         Function evaluations: 7585
+2024-04-22 08:14:37 end predict
+2024-04-22 08:14:37 {'hist': 180, 'p': 100.0, 'd': 0, 'q': 0, 'use_exog': True} [0.6146185070794846]
+Optimization terminated successfully.
+         Current function value: -0.067682
+         Iterations: 13
+         Function evaluations: 8388
+2024-04-22 08:51:21 end predict
+2024-04-22 08:51:21 {'hist': 180, 'p': 120.0, 'd': 0, 'q': 0, 'use_exog': True} [0.6169556594881637]
+Optimization terminated successfully.
+         Current function value: -0.067845
+         Iterations: 12
+         Function evaluations: 8993
+2024-04-22 09:47:37 end predict
+2024-04-22 09:47:37 {'hist': 180, 'p': 140.0, 'd': 0, 'q': 0, 'use_exog': True} [0.6194618716316362]
+Optimization terminated successfully.
+         Current function value: -0.067979
+         Iterations: 11
+         Function evaluations: 9390
+2024-04-22 11:02:47 end predict
+2024-04-22 11:02:47 {'hist': 180, 'p': 160.0, 'd': 0, 'q': 0, 'use_exog': True} [0.6226296615784152]
+Optimization terminated successfully.
+         Current function value: -0.068085
+         Iterations: 11
+         Function evaluations: 10531
+2024-04-22 12:47:45 end predict
+2024-04-22 12:47:45 {'hist': 180, 'p': 180.0, 'd': 0, 'q': 0, 'use_exog': True} [0.6244920043542733]
+Optimization terminated successfully.
+         Current function value: -0.067607
+         Iterations: 12
+         Function evaluations: 5881
+2024-04-22 13:04:46 end predict
+2024-04-22 13:04:46 {'hist': 180, 'p': 90.0, 'd': 0, 'q': 0, 'use_exog': True} [0.6146153005290327]
+Optimization terminated successfully.
+         Current function value: -0.067612
+         Iterations: 12
+         Function evaluations: 6187
+2024-04-22 13:25:07 end predict
+2024-04-22 13:25:07 {'hist': 180, 'p': 95.0, 'd': 0, 'q': 0, 'use_exog': True} [0.6146659011916598]
+Optimization terminated successfully.
+         Current function value: -0.067661
+         Iterations: 14
+         Function evaluations: 7585
+2024-04-22 13:51:42 end predict
+2024-04-22 13:51:42 {'hist': 180, 'p': 100.0, 'd': 0, 'q': 0, 'use_exog': True} [0.6146185070794846]
+Optimization terminated successfully.
+         Current function value: -0.067676
+         Iterations: 13
+         Function evaluations: 7384
+2024-04-22 14:20:04 end predict
+2024-04-22 14:20:04 {'hist': 180, 'p': 105.0, 'd': 0, 'q': 0, 'use_exog': True} [0.6150916819194184]
+Optimization terminated successfully.
+         Current function value: -0.067678
+         Iterations: 13
+         Function evaluations: 7714
+2024-04-22 14:51:01 end predict
+2024-04-22 14:51:01 {'hist': 180, 'p': 110.0, 'd': 0, 'q': 0, 'use_exog': True} [0.615946218230338]
+Optimization terminated successfully.
+         Current function value: -0.067607
+         Iterations: 12
+         Function evaluations: 5881
+2024-04-22 15:08:03 end predict
+Optimization terminated successfully.
+         Current function value: -0.071285
+         Iterations: 12
+         Function evaluations: 5885
+2024-04-22 15:25:29 end predict
+Optimization terminated successfully.
+         Current function value: -0.178839
+         Iterations: 7
+         Function evaluations: 3425
+2024-04-22 15:36:10 end predict
+Optimization terminated successfully.
+         Current function value: -0.102349
+         Iterations: 8
+         Function evaluations: 3907
+2024-04-22 15:47:59 end predict
+Optimization terminated successfully.
+         Current function value: -0.070967
+         Iterations: 12
+         Function evaluations: 4801
+2024-04-22 16:02:40 end predict
+2024-04-22 16:02:41 ({'RMSE': 24.69179659286788, 'MAPE': 15.383890142746202, 'MASE': 0.9882090760749618, 'TG': 0.0, 'CG_EGA_AP': 0.8171668018383347, 'CG_EGA_BE': 0.09937821032711544, 'CG_EGA_EP': 0.08345498783454988, 'CG_EGA_AP_hypo': 0.14962486602357983, 'CG_EGA_BE_hypo': 0.05937834941050375, 'CG_EGA_EP_hypo': 0.7909967845659164, 'CG_EGA_AP_eu': 0.8716260597265715, 'CG_EGA_BE_eu': 0.09634155655693884, 'CG_EGA_EP_eu': 0.03203238371648972, 'CG_EGA_AP_hyper': 0.7, 'CG_EGA_BE_hyper': 0.1994805194805195, 'CG_EGA_EP_hyper': 0.10051948051948052, 'P_EGA_A+B': 0.9487564206542309, 'P_EGA_A': 0.811868072452014, 'P_EGA_B': 0.13688834820221682, 'P_EGA_C': 0.0011489591781562584, 'P_EGA_D': 0.05002703433360367, 'P_EGA_E': 6.758583400919168e-05, 'R_EGA_A+B': 0.8603811841038119, 'R_EGA_A': 0.6604082184374155, 'R_EGA_B': 0.19997296566639636, 'R_EGA_uC': 0.031021897810218975, 'R_EGA_lC': 0.024547174912138415, 'R_EGA_uD': 0.01955934036226007, 'R_EGA_lD': 0.029507975128413085, 'R_EGA_uE': 0.017923763179237627, 'R_EGA_lE': 0.017058664503919976}, {'RMSE': 0.06917594811792312, 'MAPE': 0.21705445899637169, 'MASE': 0.01038436932730181, 'TG': 0.0, 'CG_EGA_AP': 0.002099908285937268, 'CG_EGA_BE': 0.0028139092318765603, 'CG_EGA_EP': 0.0009436880062561295, 'CG_EGA_AP_hypo': 0.02573775951949176, 'CG_EGA_BE_hypo': 0.004044579263475499, 'CG_EGA_EP_hypo': 0.02943093294264947, 'CG_EGA_AP_eu': 0.0036364930400578253, 'CG_EGA_BE_eu': 0.0024751704392306255, 'CG_EGA_EP_eu': 0.0011699353327039848, 'CG_EGA_AP_hyper': 0.007346563960379717, 'CG_EGA_BE_hyper': 0.0073740621125082464, 'CG_EGA_EP_hyper': 0.0006362311020216049, 'P_EGA_A+B': 0.0019977988415076846, 'P_EGA_A': 0.007622124087532912, 'P_EGA_B': 0.005675053337170984, 'P_EGA_C': 0.0, 'P_EGA_D': 0.0021310018170238834, 'P_EGA_E': 0.00013517166801838335, 'R_EGA_A+B': 0.0040060558863003115, 'R_EGA_A': 0.006731169055916104, 'R_EGA_B': 0.0027706565149478806, 'R_EGA_uC': 0.001512473720540618, 'R_EGA_lC': 0.002274501810605054, 'R_EGA_uD': 0.00033548725725847107, 'R_EGA_lD': 0.0006406053317692777, 'R_EGA_uE': 0.0004218568946830825, 'R_EGA_lE': 0.0007286743429004359})

@@ -1,0 +1,170 @@
+2024-04-22 06:22:04 tidepool fcb9 arimax ar FIRST_TIDEPOOL test None 30 1
+             datetime  glucose  CHO  insulin
+0 2017-10-14 14:00:00    165.0  NaN      NaN
+1 2017-10-14 14:05:00    163.0  NaN      NaN
+2 2017-10-14 14:10:00    159.0  NaN      NaN
+3 2017-10-14 14:15:00    158.0  NaN      NaN
+4 2017-10-14 14:20:00    158.0  NaN      NaN
+Printing heads of split dataset
+Train
+               datetime   time   glucose_0  ...  insulin_34  insulin_35      y
+100 2017-10-15 08:20:00  100.0  120.545455  ...         0.0         0.0   98.0
+101 2017-10-15 08:25:00  101.0  120.340909  ...         0.0         0.0  146.0
+102 2017-10-15 08:30:00  102.0  120.136364  ...         0.0         0.0  152.0
+103 2017-10-15 08:35:00  103.0  119.931818  ...         0.0         0.0  158.0
+104 2017-10-15 08:40:00  104.0  119.727273  ...         0.0         0.0  158.0
+105 2017-10-15 08:45:00  105.0  119.522727  ...         0.0         0.0  149.0
+106 2017-10-15 08:50:00  106.0  119.318182  ...         0.0         0.0  140.0
+107 2017-10-15 08:55:00  107.0  119.113636  ...         0.0         0.0  124.0
+108 2017-10-15 09:00:00  108.0  118.909091  ...         0.0         0.0  116.0
+109 2017-10-15 09:05:00  109.0  118.704545  ...         0.0         0.0  109.0
+
+[10 rows x 111 columns]
+Valid
+               datetime   time  glucose_0  ...  insulin_34  insulin_35      y
+100 2017-10-19 08:20:00  100.0      131.0  ...         0.0         0.0  139.0
+101 2017-10-19 08:25:00  101.0      131.0  ...         0.0         0.0  139.0
+102 2017-10-19 08:30:00  102.0      131.0  ...         0.0         0.0  139.0
+103 2017-10-19 08:35:00  103.0      131.0  ...         0.0         0.0  138.0
+104 2017-10-19 08:40:00  104.0      130.0  ...         0.0         0.0  138.0
+105 2017-10-19 08:45:00  105.0      130.0  ...         0.0         0.0  138.0
+106 2017-10-19 08:50:00  106.0      129.0  ...         0.0         0.0  139.0
+107 2017-10-19 08:55:00  107.0      129.0  ...         0.0         0.0  138.0
+108 2017-10-19 09:00:00  108.0      129.0  ...         0.0         0.0  138.0
+109 2017-10-19 09:05:00  109.0      128.0  ...         0.0         0.0  139.0
+
+[10 rows x 111 columns]
+Test
+                 datetime   time  glucose_0  ...  insulin_34  insulin_35   y
+84443 2018-08-03 08:20:00  100.0      174.0  ...         0.0         0.0 NaN
+84444 2018-08-03 08:25:00  101.0      176.0  ...         0.0         0.0 NaN
+84445 2018-08-03 08:30:00  102.0      177.0  ...         0.0         0.0 NaN
+84446 2018-08-03 08:35:00  103.0      178.0  ...         0.0         0.0 NaN
+84447 2018-08-03 08:40:00  104.0      176.0  ...         0.0         0.0 NaN
+84448 2018-08-03 08:45:00  105.0      175.0  ...         0.0         0.0 NaN
+84449 2018-08-03 08:50:00  106.0      167.0  ...         0.0         0.0 NaN
+84450 2018-08-03 08:55:00  107.0      147.0  ...         0.0         0.0 NaN
+84451 2018-08-03 09:00:00  108.0      144.0  ...         0.0         0.0 NaN
+84452 2018-08-03 09:05:00  109.0      140.0  ...         0.0         0.0 NaN
+
+[10 rows x 111 columns]
+Optimization terminated successfully.
+         Current function value: -0.059236
+         Iterations: 2
+         Function evaluations: 76
+2024-04-22 06:23:02 end predict
+2024-04-22 06:23:02 {'hist': 180, 'd': 0, 'p': 10.0, 'q': 0, 'use_exog': False} [0.6264294478617155]
+Optimization terminated successfully.
+         Current function value: -0.065824
+         Iterations: 3
+         Function evaluations: 177
+2024-04-22 06:23:28 end predict
+2024-04-22 06:23:28 {'hist': 180, 'd': 0, 'p': 20.0, 'q': 0, 'use_exog': False} [0.6205601860963603]
+Optimization terminated successfully.
+         Current function value: -0.066359
+         Iterations: 3
+         Function evaluations: 239
+2024-04-22 06:23:59 end predict
+2024-04-22 06:23:59 {'hist': 180, 'd': 0, 'p': 30.0, 'q': 0, 'use_exog': False} [0.6203081673161875]
+Optimization terminated successfully.
+         Current function value: -0.066386
+         Iterations: 3
+         Function evaluations: 295
+2024-04-22 06:24:35 end predict
+2024-04-22 06:24:35 {'hist': 180, 'd': 0, 'p': 40.0, 'q': 0, 'use_exog': False} [0.6201670120526975]
+Optimization terminated successfully.
+         Current function value: -0.066547
+         Iterations: 4
+         Function evaluations: 472
+2024-04-22 06:25:25 end predict
+2024-04-22 06:25:25 {'hist': 180, 'd': 0, 'p': 50.0, 'q': 0, 'use_exog': False} [0.6186614826454635]
+Optimization terminated successfully.
+         Current function value: -0.066594
+         Iterations: 4
+         Function evaluations: 554
+2024-04-22 06:26:24 end predict
+2024-04-22 06:26:24 {'hist': 180, 'd': 0, 'p': 60.0, 'q': 0, 'use_exog': False} [0.6180368162063175]
+Optimization terminated successfully.
+         Current function value: -0.066689
+         Iterations: 4
+         Function evaluations: 629
+2024-04-22 06:27:34 end predict
+2024-04-22 06:27:34 {'hist': 180, 'd': 0, 'p': 70.0, 'q': 0, 'use_exog': False} [0.6173944173264322]
+Optimization terminated successfully.
+         Current function value: -0.066694
+         Iterations: 4
+         Function evaluations: 707
+2024-04-22 06:28:55 end predict
+2024-04-22 06:28:55 {'hist': 180, 'd': 0, 'p': 80.0, 'q': 0, 'use_exog': False} [0.6172057967920141]
+Optimization terminated successfully.
+         Current function value: -0.066748
+         Iterations: 4
+         Function evaluations: 788
+2024-04-22 06:30:33 end predict
+2024-04-22 06:30:33 {'hist': 180, 'd': 0, 'p': 90.0, 'q': 0, 'use_exog': False} [0.6164080855856463]
+Optimization terminated successfully.
+         Current function value: -0.066783
+         Iterations: 4
+         Function evaluations: 866
+2024-04-22 06:32:31 end predict
+2024-04-22 06:32:31 {'hist': 180, 'd': 0, 'p': 100.0, 'q': 0, 'use_exog': False} [0.6159188101395143]
+Optimization terminated successfully.
+         Current function value: -0.066795
+         Iterations: 4
+         Function evaluations: 943
+2024-04-22 06:34:53 end predict
+2024-04-22 06:34:53 {'hist': 180, 'd': 0, 'p': 110.0, 'q': 0, 'use_exog': False} [0.6158483184885087]
+Optimization terminated successfully.
+         Current function value: -0.066803
+         Iterations: 4
+         Function evaluations: 1022
+2024-04-22 06:37:35 end predict
+2024-04-22 06:37:35 {'hist': 180, 'd': 0, 'p': 120.0, 'q': 0, 'use_exog': False} [0.6156563538405038]
+Optimization terminated successfully.
+         Current function value: -0.066804
+         Iterations: 4
+         Function evaluations: 1102
+2024-04-22 06:41:10 end predict
+2024-04-22 06:41:10 {'hist': 180, 'd': 0, 'p': 130.0, 'q': 0, 'use_exog': False} [0.6156078039983489]
+Optimization terminated successfully.
+         Current function value: -0.066820
+         Iterations: 4
+         Function evaluations: 1180
+2024-04-22 06:45:20 end predict
+2024-04-22 06:45:20 {'hist': 180, 'd': 0, 'p': 140.0, 'q': 0, 'use_exog': False} [0.6153155507367869]
+Optimization terminated successfully.
+         Current function value: -0.066845
+         Iterations: 4
+         Function evaluations: 1262
+2024-04-22 06:50:23 end predict
+2024-04-22 06:50:23 {'hist': 180, 'd': 0, 'p': 150.0, 'q': 0, 'use_exog': False} [0.6151051620306796]
+Optimization terminated successfully.
+         Current function value: -0.066867
+         Iterations: 4
+         Function evaluations: 1341
+2024-04-22 06:56:12 end predict
+2024-04-22 06:56:12 {'hist': 180, 'd': 0, 'p': 160.0, 'q': 0, 'use_exog': False} [0.6150155753770287]
+Optimization terminated successfully.
+         Current function value: -0.066896
+         Iterations: 4
+         Function evaluations: 1420
+2024-04-22 07:03:27 end predict
+2024-04-22 07:03:27 {'hist': 180, 'd': 0, 'p': 170.0, 'q': 0, 'use_exog': False} [0.6149464839061722]
+Optimization terminated successfully.
+         Current function value: -0.066930
+         Iterations: 4
+         Function evaluations: 1497
+2024-04-22 07:11:38 end predict
+2024-04-22 07:11:38 {'hist': 180, 'd': 0, 'p': 180.0, 'q': 0, 'use_exog': False} [0.6148075800329992]
+Optimization terminated successfully.
+         Current function value: -0.066919
+         Iterations: 4
+         Function evaluations: 1457
+2024-04-22 07:19:28 end predict
+2024-04-22 07:19:28 {'hist': 180, 'd': 0, 'p': 175.0, 'q': 0, 'use_exog': False} [0.6148593498192675]
+Optimization terminated successfully.
+         Current function value: -0.066930
+         Iterations: 4
+         Function evaluations: 1497
+2024-04-22 07:27:39 end predict
+2024-04-22 07:27:40 {'hist': 180, 'd': 0, 'p': 180.0, 'q': 0, 'use_exog': False} [0.6148075800329992]

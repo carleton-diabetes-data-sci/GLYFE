@@ -1,0 +1,92 @@
+2024-04-21 18:17:11 tidepool fa6d arimax arx FIRST_TIDEPOOL test None 60 1
+             datetime  glucose  CHO  insulin
+0 2015-09-07 17:00:00    104.0  NaN      NaN
+1 2015-09-07 17:05:00     99.0  NaN      NaN
+2 2015-09-07 17:10:00     96.0  NaN      NaN
+3 2015-09-07 17:15:00     94.0  NaN      NaN
+4 2015-09-07 17:20:00     94.0  NaN      NaN
+Printing heads of split dataset
+Train
+               datetime   time  glucose_0  ...  insulin_34  insulin_35     y
+100 2015-09-08 08:20:00  100.0      127.0  ...         0.0         0.0  98.0
+101 2015-09-08 08:25:00  101.0      133.0  ...         0.0         0.0  96.0
+102 2015-09-08 08:30:00  102.0      140.0  ...         0.0         0.0  84.0
+103 2015-09-08 08:35:00  103.0      146.0  ...         0.0         0.0  85.0
+104 2015-09-08 08:40:00  104.0      152.0  ...         0.0         0.0  90.0
+105 2015-09-08 08:45:00  105.0      158.0  ...         0.0         0.0  88.0
+106 2015-09-08 08:50:00  106.0      167.0  ...         0.0         0.0  85.0
+107 2015-09-08 08:55:00  107.0      171.0  ...         0.0         0.0  78.0
+108 2015-09-08 09:00:00  108.0      172.0  ...         0.0         0.0  78.0
+109 2015-09-08 09:05:00  109.0      173.0  ...         0.0         0.0  82.0
+
+[10 rows x 111 columns]
+Valid
+               datetime   time  glucose_0  ...  insulin_34  insulin_35      y
+100 2015-09-10 08:20:00  100.0      101.0  ...         0.0         0.0  113.0
+101 2015-09-10 08:25:00  101.0       99.0  ...         0.0         0.0  116.0
+102 2015-09-10 08:30:00  102.0       97.0  ...         0.0         0.0  141.0
+103 2015-09-10 08:35:00  103.0       97.0  ...         0.0         0.0  133.0
+104 2015-09-10 08:40:00  104.0       98.0  ...         0.0         0.0  133.0
+105 2015-09-10 08:45:00  105.0       97.0  ...         0.0         0.0  133.0
+106 2015-09-10 08:50:00  106.0       96.0  ...         0.0         0.0  146.0
+107 2015-09-10 08:55:00  107.0       91.0  ...         0.0         0.0  152.0
+108 2015-09-10 09:00:00  108.0       91.0  ...         0.0         0.0  156.0
+109 2015-09-10 09:05:00  109.0       89.0  ...         0.0         0.0  162.0
+
+[10 rows x 111 columns]
+Test
+                  datetime   time  glucose_0  ...  insulin_34  insulin_35      y
+265589 2018-03-17 08:20:00  100.0      131.0  ...         0.0         0.0  134.0
+265590 2018-03-17 08:25:00  101.0      129.0  ...         0.0         0.0  135.0
+265591 2018-03-17 08:30:00  102.0      127.0  ...         0.0         0.0  133.0
+265592 2018-03-17 08:35:00  103.0      126.0  ...         0.0         0.0  131.0
+265593 2018-03-17 08:40:00  104.0      125.0  ...         0.0         0.0  127.0
+265594 2018-03-17 08:45:00  105.0      127.0  ...         0.0         0.0  121.0
+265595 2018-03-17 08:50:00  106.0      128.0  ...         0.0         0.0  119.0
+265596 2018-03-17 08:55:00  107.0      126.0  ...         0.0         0.0  114.0
+265597 2018-03-17 09:00:00  108.0      127.0  ...         0.0         0.0  108.0
+265598 2018-03-17 09:05:00  109.0      127.0  ...         0.0         0.0  105.0
+
+[10 rows x 111 columns]
+Optimization terminated successfully.
+         Current function value: 0.090330
+         Iterations: 4
+         Function evaluations: 493
+2024-04-21 18:22:29 end predict
+2024-04-21 18:22:29 {'hist': 180, 'p': 20.0, 'd': 0, 'q': 0, 'use_exog': True} [0.7878729074177079]
+Optimization terminated successfully.
+         Current function value: 0.089384
+         Iterations: 3
+         Function evaluations: 677
+2024-04-21 18:27:15 end predict
+2024-04-21 18:27:15 {'hist': 180, 'p': 40.0, 'd': 0, 'q': 0, 'use_exog': True} [0.785276427035525]
+Optimization terminated successfully.
+         Current function value: 0.089270
+         Iterations: 4
+         Function evaluations: 1342
+2024-04-21 18:37:13 end predict
+2024-04-21 18:37:13 {'hist': 180, 'p': 60.0, 'd': 0, 'q': 0, 'use_exog': True} [0.7850111799749435]
+Optimization terminated successfully.
+         Current function value: 0.089250
+         Iterations: 4
+         Function evaluations: 1738
+2024-04-21 18:53:02 end predict
+2024-04-21 18:53:03 {'hist': 180, 'p': 80.0, 'd': 0, 'q': 0, 'use_exog': True} [0.7850535000386093]
+Optimization terminated successfully.
+         Current function value: 0.089242
+         Iterations: 4
+         Function evaluations: 2151
+2024-04-21 19:17:59 end predict
+2024-04-21 19:17:59 {'hist': 180, 'p': 100.0, 'd': 0, 'q': 0, 'use_exog': True} [0.7848639560730066]
+Optimization terminated successfully.
+         Current function value: 0.089212
+         Iterations: 4
+         Function evaluations: 2564
+2024-04-21 19:55:26 end predict
+2024-04-21 19:55:26 {'hist': 180, 'p': 120.0, 'd': 0, 'q': 0, 'use_exog': True} [0.7843926589344494]
+Optimization terminated successfully.
+         Current function value: 0.089178
+         Iterations: 4
+         Function evaluations: 2981
+2024-04-21 21:10:57 end predict
+2024-04-21 21:10:57 {'hist': 180, 'p': 140.0, 'd': 0, 'q': 0, 'use_exog': True} [0.7843016530207114]
