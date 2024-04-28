@@ -1,1 +1,5 @@
-.git/annex/objects/pp/KF/MD5E-s155--c4745b82f1d51c7a678e52b2353e0d9a/MD5E-s155--c4745b82f1d51c7a678e52b2353e0d9a
+* annex.backend=MD5E
+**/.git* annex.largefiles=nothing
+* annex.largefiles=mimeencoding=binary
+*.csv annex.largefiles=anything
+*.xml annex.largefiles=anything
