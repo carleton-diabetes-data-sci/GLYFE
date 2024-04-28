@@ -6,6 +6,7 @@ import argparse
 from os.path import join
 from misc.utils import locate_model, locate_params, locate_search
 import misc.constants as cs
+import misc
 from misc.utils import printd
 from processing.cross_validation import make_predictions, find_best_hyperparameters
 import os
@@ -51,13 +52,20 @@ def main(dataset, subject, model, params_name, exp, mode, log, ph, plot):
     results = ResultsSubject(model, exp, ph, dataset, subject, params=params, results=raw_results)
     printd(results.compute_results())
     if plot:
-        dir = os.path.join(cs.path, "plots", params_name, exp, "ph-" + str(ph))
+        exp_dir = os.path.join(cs.path, "experiments", exp)
+        # check if the experiment folder is a datalad dataset
+        # note: this same block of code is also in postprocessing/results.py
+        if not os.path.exists(os.path.join(exp_dir, ".datalad")):
+            raise Exception("This looks like a new experiement! Make it into a datalad dataset before running anything. Instructions are in the README of GLYFE/experiments.")
+
+        dir = os.path.join(cs.path, "experiments", exp, "plots", params_name, "ph-" + str(ph))
         Path(dir).mkdir(parents=True, exist_ok=True)
         if mode == 'valid':
             file_path = os.path.join(dir, dataset + "_" + subject + "_valid.png")
             results.plot(file_path, 0)
         if mode == 'test':
-            for day in range(10): # hard coded for the ohio dataset
+            n_days_test = misc.datasets.datasets[dataset]["n_days_test"]
+            for day in range(n_days_test): # plot all test days
                 file_path = os.path.join(dir, dataset + "_" + subject + "_test_" + str(day) + ".png")
                 results.plot(file_path, day)
 

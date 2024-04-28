@@ -120,7 +120,7 @@ class ResultsSubject(_Results):
         :return: (params dictionary), dataframe with ground truths and predictions
         """
         file = self.dataset + "_" + self.subject + ".npz"
-        path = os.path.join(cs.path, "results", self.model, self.experiment, "ph-" + str(self.ph), file)
+        path = os.path.join(cs.path, "experiments", self.experiment, "results", self.model, "ph-" + str(self.ph), file)
 
         data = np.load(path, allow_pickle=True)
         params = data["params"].tolist() # tolist() converts the 0-dim numpy array to the entry stored in it. Here, a dictionary.
@@ -138,7 +138,13 @@ class ResultsSubject(_Results):
         Save the results and params
         :return:
         """
-        dir = os.path.join(cs.path, "results", self.model, self.experiment, "ph-" + str(self.ph))
+        exp_dir = os.path.join(cs.path, "experiments", self.experiment)
+        # check if the experiment folder is a datalad dataset
+        # note: this same block of code is also in main.py
+        if not os.path.exists(os.path.join(exp_dir, ".datalad")):
+            raise Exception("This looks like a new experiement! Make it into a datalad dataset before running anything. Instructions are in the README of GLYFE/experiments.")
+
+        dir = os.path.join(cs.path, "experiments", self.experiment, "results", self.model, "ph-" + str(self.ph))
         Path(dir).mkdir(parents=True, exist_ok=True)
 
         saveable_results = np.array([res.reset_index().to_numpy() for res in self.results])

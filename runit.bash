@@ -29,7 +29,7 @@ for SUBJECT in $SUBJECTS; do
             echo $PARAM
             echo $MODEL
 
-            DIR="outputs/$PARAM/$EXP/ph-$PH"
+            DIR="experiments/$EXP/outputs/$PARAM/ph-$PH"
             mkdir -p $DIR
             python main.py --dataset=$DATASET --subject=$SUBJECT --model=$MODEL --params=$PARAM --ph=$PH --exp=$EXP --mode=$MODE --plot=$PLOT > $DIR/$DATASET$()_$SUBJECT.txt
         done
