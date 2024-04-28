@@ -8,3 +8,7 @@
 	url = /data/datasets/ohio
 	datalad-id = f8b1ee1e-281b-4c71-87c7-faf37512e58f
 	datalad-url = /data/datasets/ohio
+[submodule "experiments/test_datalad"]
+	path = experiments/test_datalad
+	url = ./experiments/test_datalad
+	datalad-id = 575ef58f-94a9-4e0e-9e16-d9c958401ace
