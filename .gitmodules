@@ -1,0 +1,5 @@
+[submodule "data/t1dms"]
+	path = data/t1dms
+	url = /data/datasets/t1dms
+	datalad-id = bf3fb476-044b-48a1-84f0-28ea61b59dc2
+	datalad-url = /data/datasets/t1dms
