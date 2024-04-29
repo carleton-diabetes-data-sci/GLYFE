@@ -17,3 +17,8 @@
 	url = /data/datasets/t1dms_child
 	datalad-id = c1c12795-f0d0-400e-bc99-d1d43b36de1c
 	datalad-url = /data/datasets/t1dms_child
+[submodule "data/t1dms_adolescent"]
+	path = data/t1dms_adolescent
+	url = /data/datasets/t1dms_adolescent
+	datalad-id = 416b9477-5607-46e4-9302-8ec94359052b
+	datalad-url = /data/datasets/t1dms_adolescent
