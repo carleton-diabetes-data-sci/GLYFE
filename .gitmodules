@@ -12,3 +12,8 @@
 	path = experiments/test_datalad
 	url = ./experiments/test_datalad
 	datalad-id = 575ef58f-94a9-4e0e-9e16-d9c958401ace
+[submodule "data/t1dms_child"]
+	path = data/t1dms_child
+	url = /data/datasets/t1dms_child
+	datalad-id = c1c12795-f0d0-400e-bc99-d1d43b36de1c
+	datalad-url = /data/datasets/t1dms_child
