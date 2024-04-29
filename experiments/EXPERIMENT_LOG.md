@@ -17,3 +17,10 @@ Experiment name: test_datalad
 Commit hash before the experiment:2c99e06
 Description: Running some Ohio data through the base model just 
 to test how datalad is working. 
+
+Experiment name: test_datalad
+Commit hash before the experiment: 9203e09
+Description: Running some Ohio data through the polynomial 
+model to test if datalad is working correctly through Erin's
+user account. BAD PRACTICE TO HAVE ONE EXPERIMENT NAME FOR 
+MULTIPLE VERSIONS OF THE CODE.
