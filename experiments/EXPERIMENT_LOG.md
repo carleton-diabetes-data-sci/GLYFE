@@ -14,7 +14,7 @@ Description:
 ## Logs
 
 Experiment name: test_datalad
-Commit hash before the experiment:2c99e06
+Commit hash before the experiment: 2c99e06
 Description: Running some Ohio data through the base model just 
 to test how datalad is working. 
 
