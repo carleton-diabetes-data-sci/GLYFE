@@ -12,6 +12,7 @@ from processing.cross_validation import make_predictions, find_best_hyperparamet
 import os
 from pathlib import Path
 from shutil import rmtree
+import matplotlib.pyplot as plt
 
 """ This is the source code the benchmark GLYFE for glucose prediction in diabetes.
     For more infos on how to use it, go to its Github repository at: https://github.com/dotXem/GLYFE """
@@ -60,14 +61,20 @@ def main(dataset, subject, model, params_name, exp, mode, log, ph, plot):
 
         dir = os.path.join(cs.path, "experiments", exp, "plots", params_name, "ph-" + str(ph))
         Path(dir).mkdir(parents=True, exist_ok=True)
+
         if mode == 'valid':
             file_path = os.path.join(dir, dataset + "_" + subject + "_valid.png")
             results.plot(file_path, 0)
+
         if mode == 'test':
             n_days_test = misc.datasets.datasets[dataset]["n_days_test"]
             for day in range(n_days_test): # plot all test days
                 file_path = os.path.join(dir, dataset + "_" + subject + "_test_" + str(day) + ".png")
                 results.plot(file_path, day)
+
+                if day % 5 == 0:
+                    # close all figures to avoid memory leak
+                    plt.close('all')
 
 
 
