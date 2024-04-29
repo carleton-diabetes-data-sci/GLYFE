@@ -24,4 +24,6 @@ for another set of these instructions.
 1. If you tried running the code and came here because it raised an Exception, go delete that folder that was created in `experiments`, it should be empty, because your code didn't run.
 2. When you're in GLYFE in the terminal, run `datalad create -d . -D "Shared experiment for first run of Tidepool data through GLYFE on Gray" experiments/first_tidepool`
 3. Check that this worked by running `datalad subdatasets` and look for your new dataset.
-4. Now, you can go back to your local copy of GLYFE, but you'll need to run `datalad update --how merge` 
+4. Update the `.gitattributes` file in the root of this new experiment dataset to look like the `gitattributes` file in other experiments.
+5. In the terminal, at the root of your new dataset, run `git config receive.denyCurrentBranch updateInstead` so that this subdataset can receive pushes without getting grumpy.
+6. Now, you can go back to your local copy of GLYFE, but you'll need to run `datalad update -r --how merge` 
