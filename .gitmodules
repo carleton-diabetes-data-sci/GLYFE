@@ -27,3 +27,8 @@
 	url = /data/datasets/t1dms_adult
 	datalad-id = 58737ed3-a5e5-4e2a-8079-f82c0163d067
 	datalad-url = /data/datasets/t1dms_adult
+[submodule "data/sap100"]
+	path = data/sap100
+	url = /data/datasets/sap100
+	datalad-id = b4fe4d5f-6d20-4464-82da-23a25b1d0e48
+	datalad-url = /data/datasets/sap100
