@@ -22,3 +22,8 @@
 	url = /data/datasets/t1dms_adolescent
 	datalad-id = 416b9477-5607-46e4-9302-8ec94359052b
 	datalad-url = /data/datasets/t1dms_adolescent
+[submodule "data/t1dms_adult"]
+	path = data/t1dms_adult
+	url = /data/datasets/t1dms_adult
+	datalad-id = 58737ed3-a5e5-4e2a-8079-f82c0163d067
+	datalad-url = /data/datasets/t1dms_adult
