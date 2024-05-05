@@ -59,7 +59,7 @@ def main(dataset, subject, model, params_name, exp, mode, log, ph, plot):
         if not os.path.exists(os.path.join(exp_dir, ".datalad")):
             raise Exception("This looks like a new experiement! Make it into a datalad dataset before running anything. Instructions are in the README of GLYFE/experiments.")
 
-        dir = os.path.join(cs.path, "experiments", exp, "plots", params_name, "ph-" + str(ph))
+        dir = os.path.join(cs.path, "experiments", exp, "plots", params_name, "ph-" + str(ph), subject)
         Path(dir).mkdir(parents=True, exist_ok=True)
 
         if mode == 'valid':
