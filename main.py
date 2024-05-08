@@ -34,20 +34,26 @@ def main(dataset, subject, model, params_name, exp, mode, log, ph, plot):
 
     """ PREPROCESSING """
     train, valid, test, scalers = preprocessing(dataset, subject, ph_f, hist_f, day_len_f)
+    
     """ MODEL TRAINING & TUNING """
+    # create a temporary folder to hold weights and other temporary files used by the models
+    # CAUTION: this is not foolproof
+    # if you try to run two separate calls of main with the same model, ph, and subject id
+    # they will clobber each other's tempory files (even if they're from different datasets!)
+    temp_dir = os.path.join(cs.path, "tmp", model, ph, subject)
+    os.makedirs(temp_dir, exist_ok=True)
+
     if search:
         params = find_best_hyperparameters(subject, model_class, params, search, ph_f, train, valid, test)
 
     raw_results = make_predictions(subject, model_class, params, ph_f, train, valid, test, mode=mode)
+    
     """ POST-PROCESSING """
     raw_results = postprocessing(raw_results, scalers, dataset)
-    # delete temporary files created by the neural nets
-    if model == "lstm" or model == "ffnn":
-        # these directories were created in the files processing/models/lstm.py and processing/models/ffnn.py
-        rmtree(os.path.join(cs.path, "tmp"))
-        # I can't figure out why De Bois didn't use Python's tempfile module for this
-        # We could refactor, but I don't think it's worth is now
-
+    
+    # delete temporary files 
+    # (only the neural nets use them, but all models create the folder for consistency)
+    rmtree(os.path.join(cs.path, "tmp", model, ph, subject))
 
     """ EVALUATION """
     results = ResultsSubject(model, exp, ph, dataset, subject, params=params, results=raw_results)
