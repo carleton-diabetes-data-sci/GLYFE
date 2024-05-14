@@ -36,3 +36,7 @@
 	path = experiments/all_sap100
 	url = ./experiments/all_sap100
 	datalad-id = 6fbeee36-0747-481d-92e3-1ea78a1b7fc9
+[submodule "experiments/sap100_6w"]
+	path = experiments/sap100_6w
+	url = ./experiments/sap100_6w
+	datalad-id = 72c7857c-332f-460b-8833-89a8d27c9300
