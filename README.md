@@ -87,7 +87,7 @@ Go in the GLYFE directory and run the command: ```python main.py --dataset={data
 * ```exp``` name of the experimental run, to keep track of different tries for the same model;
 * ```mode``` either ```valid``` or ```test```, specifies wether the evaluation is to be made on the validation or testing set;
 * ```params``` (optional) gives the name of the parameter file (in the ```./processing/params``` folder) to use  (by default it has the same name as the name of the model);
-* ```logs``` either ```1``` or ```0```, tells to (or not to) plot the results for the first day at the end of the run;
+* ```plot``` either ```1``` or ```0```, tells to (or not to) plot the results for the first day at the end of the run. IF THE NUMBER IS HIGHER THAN 1, it's the number of days to plot;
 * ```logs``` (optional) specifies the file in which the logs of the benchmark shall be written in (inside the ```logs``` directory); by default, the logs are printed in the console;
 
 Here is an example of a main run: ```python main.py --dataset=ohio --subject=559 --model=base --ph=30 --exp=myfirstrun --mode=valid --plot=1```

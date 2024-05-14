@@ -28,6 +28,5 @@ def load_sap100(dataset, subject):
     # convert datetime to a datetime object
     df_glucose_carb_bolus["datetime"] = pd.to_datetime(df_glucose_carb_bolus["datetime"])
 
-    print(df_glucose_carb_bolus.head())
     return df_glucose_carb_bolus
   

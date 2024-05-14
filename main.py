@@ -39,7 +39,8 @@ def main(dataset, subject, model, params_name, exp, mode, log, ph, plot):
     # create a temporary folder to hold weights and other temporary files used by the models
     # CAUTION: this is not foolproof
     # if you try to run two separate calls of main with the same model, ph, and subject id
-    # they will clobber each other's tempory files (even if they're from different datasets!)
+    # they will clobber each other's tempory files 
+    # (even if they're from different datasets or different experiments!)
     temp_dir = os.path.join(cs.path, "tmp", model, ph, subject)
     os.makedirs(temp_dir, exist_ok=True)
 
@@ -58,7 +59,7 @@ def main(dataset, subject, model, params_name, exp, mode, log, ph, plot):
     """ EVALUATION """
     results = ResultsSubject(model, exp, ph, dataset, subject, params=params, results=raw_results)
     printd(results.compute_results())
-    if plot:
+    if plot == 1:
         exp_dir = os.path.join(cs.path, "experiments", exp)
         # check if the experiment folder is a datalad dataset
         # note: this same block of code is also in postprocessing/results.py
@@ -79,6 +80,36 @@ def main(dataset, subject, model, params_name, exp, mode, log, ph, plot):
                 results.plot(file_path, day)
 
                 if day % 5 == 0:
+                    # close all figures to avoid memory leak
+                    plt.close('all')
+
+    elif plot > 1:
+        exp_dir = os.path.join(cs.path, "experiments", exp)
+
+        # check if the experiment folder is a datalad dataset
+        # note: this same block of code is also in postprocessing/results.py
+        if not os.path.exists(os.path.join(exp_dir, ".datalad")):
+            raise Exception("This looks like a new experiement! Make it into a datalad dataset before running anything. Instructions are in the README of GLYFE/experiments.")
+        
+        dir = os.path.join(cs.path, "experiments", exp, "plots", params_name, "ph-" + str(ph), subject)
+        Path(dir).mkdir(parents=True, exist_ok=True)
+
+        if mode == 'valid':
+            file_path = os.path.join(dir, dataset + "_" + subject + "_valid.png")
+            results.plot(file_path, 0)
+
+        if mode == 'test':
+            n_days_test = misc.datasets.datasets[dataset]["n_days_test"]
+
+            days_to_plot = plot
+            if days_to_plot > n_days_test:
+                days_to_plot = n_days_test
+            
+            for day in range(days_to_plot):
+                file_path = os.path.join(dir, dataset + "_" + subject + "_test_" + str(day) + ".png")
+                results.plot(file_path, day)
+
+                if day % 3 == 0:
                     # close all figures to avoid memory leak
                     plt.close('all')
 

@@ -1,3 +1,4 @@
+from exceptiongroup import catch
 from .cleaning.unit_scaling import scaling_T1DMS
 from misc import constants as cs
 from preprocessing.cleaning.nans import remove_nans, fill_nans
@@ -74,16 +75,112 @@ def preprocessing_sap100(dataset, subject, ph, hist, day_len, n_days_test):
     data = create_samples(data, ph, hist, day_len)
     data = fill_nans(data, day_len, n_days_test)
     train, valid, test = split(data, day_len, n_days_test, cs.cv)
-    print("Printing heads of split dataset")
-    print("Train")
-    print(train[0].iloc[100:110])
-    print("Valid")
-    print(valid[0].iloc[100:110])
-    print("Test")
-    print(test[0].iloc[100:110])
+    # print("Printing heads of split dataset")
+    # print("Train")
+    # print(train[0].iloc[100:110])
+    # print("Valid")
+    # print(valid[0].iloc[100:110])
+    # print("Test")
+    # print(test[0].iloc[100:110])
     [train, valid, test] = [remove_nans(set) for set in [train, valid, test]]
     train, valid, test, scalers = standardize(train, valid, test)
 
+    return train, valid, test, scalers
+
+def preprocessing_sap100_1y(dataset, subject, ph, hist, day_len, n_days_test):
+    """
+    Tidepool SAP100 dataset preprocessing pipeline:
+    Only take the last one year + 60 days of data (60 test days)
+    
+    Errors out if there is not enough data.
+
+    :param dataset: name of the dataset, e.g. "sap100"
+    :param subject: id of the subject, e.g. "1"
+    :param ph: prediction horizon, e.g. 30
+    :param hist: history length, e.g. 60
+    :param day_len: length of a day normalized by sampling frequency, e.g. 1440 (1440/1)
+    :return: training_old folds, validation folds, testing folds, list of scaler (one per fold)
+    """
+
+    data = load_sap100(dataset, subject)
+
+    # Take the last 365+60 days of data
+    data = data.iloc[-(365+60)*1440//cs.freq:]
+    
+    if data.shape[0] < (365+60)*1440//cs.freq:
+        print("Tried to take the last 365+60 days of data, but there was not enough data for subject " + subject)
+        raise ValueError("Not enough data for subject " + subject)
+
+    data = resample(data, cs.freq)
+    data = create_samples(data, ph, hist, day_len)
+    data = fill_nans(data, day_len, n_days_test)
+    train, valid, test = split(data, day_len, n_days_test, cs.cv)
+    [train, valid, test] = [remove_nans(set) for set in [train, valid, test]]
+    train, valid, test, scalers = standardize(train, valid, test)
+    return train, valid, test, scalers
+
+def preprocessing_sap100_4m(dataset, subject, ph, hist, day_len, n_days_test):
+    """
+    Tidepool SAP100 dataset preprocessing pipeline:
+    Only take the last 4 months + 60 days of data (60 test days)
+    
+    Errors out if there is not enough data.
+
+    :param dataset: name of the dataset, e.g. "sap100"
+    :param subject: id of the subject, e.g. "1"
+    :param ph: prediction horizon, e.g. 30
+    :param hist: history length, e.g. 60
+    :param day_len: length of a day normalized by sampling frequency, e.g. 1440 (1440/1)
+    :return: training_old folds, validation folds, testing folds, list of scaler (one per fold)
+    """
+
+    data = load_sap100(dataset, subject)
+
+    # Take the last 4 months+60 days of data
+    data = data.iloc[-(122+60)*1440//cs.freq:]
+    
+    if data.shape[0] < (122+60)*1440//cs.freq:
+        print("Tried to take the last 122+60 days of data, but there was not enough data for subject " + subject)
+        raise ValueError("Not enough data for subject " + subject)
+
+    data = resample(data, cs.freq)
+    data = create_samples(data, ph, hist, day_len)
+    data = fill_nans(data, day_len, n_days_test)
+    train, valid, test = split(data, day_len, n_days_test, cs.cv)
+    [train, valid, test] = [remove_nans(set) for set in [train, valid, test]]
+    train, valid, test, scalers = standardize(train, valid, test)
+    return train, valid, test, scalers
+
+def preprocessing_sap100_6w(dataset, subject, ph, hist, day_len, n_days_test):
+    """
+    Tidepool SAP100 dataset preprocessing pipeline:
+    Only take the last 6 weeks + 60 days of data (60 test days)
+    
+    Errors out if there is not enough data.
+
+    :param dataset: name of the dataset, e.g. "sap100"
+    :param subject: id of the subject, e.g. "1"
+    :param ph: prediction horizon, e.g. 30
+    :param hist: history length, e.g. 60
+    :param day_len: length of a day normalized by sampling frequency, e.g. 1440 (1440/1)
+    :return: training_old folds, validation folds, testing folds, list of scaler (one per fold)
+    """
+
+    data = load_sap100(dataset, subject)
+
+    # Take the last 6 weeks+60 days of data
+    data = data.iloc[-(42+60)*1440//cs.freq:]
+    
+    if data.shape[0] < (42+60)*1440//cs.freq:
+        print("Tried to take the last 42+60 days of data, but there was not enough data for subject " + subject)
+        raise ValueError("Not enough data for subject " + subject)
+
+    data = resample(data, cs.freq)
+    data = create_samples(data, ph, hist, day_len)
+    data = fill_nans(data, day_len, n_days_test)
+    train, valid, test = split(data, day_len, n_days_test, cs.cv)
+    [train, valid, test] = [remove_nans(set) for set in [train, valid, test]]
+    train, valid, test, scalers = standardize(train, valid, test)
     return train, valid, test, scalers
 
 # the sap100 preprocessing file might work for other tidepool datasets like PA50 and HCL150, I don't know.
@@ -94,6 +191,9 @@ preprocessing_per_dataset = {
     "t1dms_child": preprocessing_t1dms,
     "ohio": preprocessing_ohio,
     "sap100": preprocessing_sap100,
+    "sap100_1y": preprocessing_sap100_1y,
+    "sap100_4m": preprocessing_sap100_4m,
+    "sap100_6w": preprocessing_sap100_6w
 }
 
 
