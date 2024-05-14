@@ -1,17 +1,19 @@
 '''
+
 Code by Lucie Wolf, Winter 2024
 
-This code takes the outputs from the outputs folder and puts them into a dataframe/series.
+This code takes the outputs (such as RMSEs, MAPEs, etc.) from the outputs folder and puts them into a dataframe/series, then stores that dataframe in a csv file with a name given on the command line
 
 To run the code: 
-    python interpret_outputs.py --overwrite
+    python interpret_outputs.py csv_name.csv --overwrite
         Use with caution. Overwrites the previous dataframe completely.
-    python interpret_outputs.py --append
+    python interpret_outputs.py csv_name.csv --append
         Suggested. Appends the new dictionaries to the previous dataframe, throws an error and does not continue if two dictionaries have the same experiment name.
     Exactly one of --overwrite or --append must be used.
 
-    python interpret_outputs.py --hide_file_errors
-        This is an optional flag. If used, it will not show errors with specific files, though it will show other errors.
+    python interpret_outputs.py csv_name.csv --hide_file_errors
+        This is an optional flag. If used, it will not show errors with specific files, though it will show any other errors.
+
 '''
 
 import pandas as pd
@@ -22,30 +24,38 @@ import argparse
 
 def parse_args():
     parser = argparse.ArgumentParser()
+    parser.add_argument('csv_name')
     parser.add_argument('--append', action='store_true')
     parser.add_argument('--overwrite', action='store_true')
     parser.add_argument('--hide_file_errors', action='store_true')
     args = parser.parse_args()
 
+    if args.csv_name[-4:] != '.csv':
+        raise Exception('The file to save the dataframe in must be a csv file and should end in ".csv".')
+
     if args.overwrite == args.append:
         raise Exception('Must have exactly one of the overwrite and append flags set.')
-
-    if args.overwrite:
-        print("Overwriting previous dataframe.")
-    else:
-        print("Adding to previous dataframe.")
     
-    return args.overwrite, args.hide_file_errors
+    if args.overwrite:
+        print(f"Overwriting previous dataframe at {args.csv_name}.")
+    else:
+        print(f"Adding to previous dataframe at {args.csv_name}.")
+    
+    return args.overwrite, args.hide_file_errors, args.csv_name
+
 
 def loop_all_files(hide_file_errors):
     # Get all the dictionaries from the outputs folder
     dicts = {}
-    for dir_path, _, file_names in os.walk('outputs'):
+    for dir_path, _, file_names in os.walk('experiments'):
+        if 'outputs' not in dir_path:
+            continue
+
         for file_name in file_names:
             file_path = os.path.join(dir_path, file_name)
             
             try:
-                mean_dicts, std_dicts = process_single_file(file_path) # the two dictionaries outputted are the means and stds respectively
+                mean_dicts, std_dicts = process_single_file(file_path) # The two dictionaries outputted are the means and stds respectively
                 
                 for metric in mean_dicts.keys():
                     key_name_mean = f'{file_path}/{metric}/mean'
@@ -53,13 +63,14 @@ def loop_all_files(hide_file_errors):
                     dicts[key_name_mean] = mean_dicts[metric]
                     dicts[key_name_std] = std_dicts[metric]
             
-            except Exception as e:
+            except Exception as e: # If there was an error processing the file
                 if not hide_file_errors:
                     print(f'Error with file: {file_path}')
                     print('No dictionaries/outputs found')
                     print(e)
                     print()
     return dicts
+
 
 def process_single_file(file_path):
     # Get the first dictionary from a specific txt file
@@ -68,20 +79,18 @@ def process_single_file(file_path):
     f.close()
 
     # Get the dictionaries from the output string if there is an output string, otherwise do nothing
-    try:
-        start = output.rindex('(') + 1
-        end = output.rindex(')')
+    start = output.rindex('(') + 1
+    end = output.rindex(')')
 
-        file_dicts = get_dicts_from_str(output[start:end])
-        return file_dicts
-    
-    except Exception:
-        pass
+    file_dicts = get_dicts_from_str(output[start:end])
+    return file_dicts # Note: throws an error if there are no dictionaries, the file doesn't exist, etc.
+
 
 def get_dicts_from_str(dicts_str):
     # Get all the dictionaries from one string of dictionaries
     file_dicts = []
 
+    # Get the indices of the start and end of each dictionary
     starts = get_char_inds(dicts_str, '{')
     ends = get_char_inds(dicts_str, '}')
     
@@ -93,26 +102,27 @@ def get_dicts_from_str(dicts_str):
     
     return file_dicts
 
-def get_experiment_name(file_path):
-    # Get the experiment name from the file path
-    return file_path.split('/')[2]
 
 def get_char_inds(s, char):
     # Get all the indices of a character in a string
     return [i for i, ltr in enumerate(s) if ltr == char]
+
 
 def get_index_tuples(dicts):
     # Get the index tuples for the dataframe/series
     tuples = []
     for key in dicts.keys():
         _, model, experiment, ph, population_patient, metric, calculation = key.split('/') # remove 'outputs' from the start and split the file path by '/'
-        ph = int(ph[3:]) # change from 'ph-x' to 'x'
-        population, patient = population_patient.split('_') # get the population and patient from the experiment name
+
+        ph = int(ph[3:]) # change from 'ph-n' to 'n'
+        population, patient = population_patient.split('_') # Get the population and patient from the patient name
         patient = int(patient[:-4]) # change from 'patient.txt' to 'patient'
         tuples.append(tuple([model, experiment, ph, population, patient, metric, calculation]))
+    
     return tuples
 
-def make_df(dicts):
+
+def make_df_from_dict(dicts):
     # Make a single dataframe/series from the dictionaries
     tuples = get_index_tuples(dicts)
     col_names = ['model', 'experiment', 'ph', 'population', 'patient', 'metric', 'calculation']
@@ -121,13 +131,15 @@ def make_df(dicts):
     df = pd.Series(dicts.values(), index=df_index)
     return df
 
-def import_df(file_name):
-    # Import the dataframe
-    num_cols = len(pd.read_csv(file_name).columns) # Get the total number of columns
-    df = pd.read_csv(file_name, index_col=list(range(num_cols - 1)))
+
+def load_df(csv_name):
+    # Import the old dataframe from the csv
+    num_cols = len(pd.read_csv(csv_name).columns) # Get the total number of columns
+    df = pd.read_csv(csv_name, index_col=list(range(num_cols - 1)))
     df = df.squeeze()
     df.name = None
     return df
+
 
 def combine_dfs(df1, df2):
     # Combine two dataframes, throwing an error if there is a conflict
@@ -142,36 +154,27 @@ def combine_dfs(df1, df2):
     df_final = df1.combine_first(df2)
     return df_final
 
-def append_to_df(hide_file_errors):
+
+def append_to_df(df_new, csv_name):
     # Append the new dataframe to the old dataframe
     try:
-        df_old = import_df('outputs_df.csv')
+        df_old = load_df(csv_name)
+        return combine_dfs(df_old, df_new)
     except Exception:
-        print('No previous dataframe found. Creating new dataframe.')
-        return None, True
-    
-    all_dicts = loop_all_files(hide_file_errors)
-    df_new = make_df(all_dicts)
-
-    return combine_dfs(df_old, df_new), False
-
-def create_new_df(hide_file_errors):
-    # Create a new dataframe/series from scratch
-    all_dicts = loop_all_files(hide_file_errors)
-    df = make_df(all_dicts)
-    return df
-
+        print('No previous dataframe csv found. Creating new csv.')
+        return df_new
 
 
 def main():
-    overwrite, hide_file_errors = parse_args()
+    should_overwrite, hide_file_errors, csv_name = parse_args()
+
+    all_dicts = loop_all_files(hide_file_errors)
+    df = make_df_from_dict(all_dicts)
     
-    if not overwrite:
-        df, overwrite = append_to_df(hide_file_errors) # if the previous dataframe is not found, create a new one
-    if overwrite:
-        df = create_new_df(hide_file_errors)
+    if not should_overwrite:
+        df = append_to_df(df, csv_name) 
     
-    df.to_csv('outputs_df.csv')
+    df.to_csv(csv_name)
     
 
 if __name__ == '__main__':
