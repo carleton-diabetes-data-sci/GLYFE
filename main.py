@@ -41,7 +41,7 @@ def main(dataset, subject, model, params_name, exp, mode, log, ph, plot):
     # if you try to run two separate calls of main with the same model, ph, and subject id
     # they will clobber each other's tempory files 
     # (even if they're from different datasets or different experiments!)
-    temp_dir = os.path.join(cs.path, "tmp", model, ph, subject)
+    temp_dir = os.path.join(cs.path, "tmp", model, str(ph), subject)
     os.makedirs(temp_dir, exist_ok=True)
 
     if search:
@@ -54,7 +54,7 @@ def main(dataset, subject, model, params_name, exp, mode, log, ph, plot):
     
     # delete temporary files 
     # (only the neural nets use them, but all models create the folder for consistency)
-    rmtree(os.path.join(cs.path, "tmp", model, ph, subject))
+    rmtree(temp_dir)
 
     """ EVALUATION """
     results = ResultsSubject(model, exp, ph, dataset, subject, params=params, results=raw_results)
