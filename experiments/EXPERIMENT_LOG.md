@@ -31,3 +31,16 @@ MULTIPLE VERSIONS OF THE CODE.
 Tidepool data. We are not modifying the models in any way, so some of them might
 fail. The big picture idea is to see if we get different results from a larger 
 quantity of data.
+
+**Experiment name**: sap100_6w
+**Commit hash before the experiment**: da3ccfb
+**Description**: Part 1/3 for the paper that we are writing in 
+Spring 2024. In this experiment, we are running each of the SAP100
+patients through all of De Bois's models, at all three PHs, 
+with only 6 weeks of training (includes validation because of the
+fancy cross-fold validation?) data to mimic the length of the Ohio
+data. We are still using 60 days of test data for consistency across
+all three time spans. Also, we only plotted the first 5 days for 
+each patient to save space. We haven't yet figured out how to 
+generate plots after the fact, though.
+
