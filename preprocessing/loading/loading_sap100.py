@@ -18,7 +18,7 @@ def load_sap100(dataset, subject):
     :param day_len: length of day scaled to sampling frequency
     :return: dataframe
     """
-    df = pd.read_csv(join(cs.path, "data", dataset, "short-names", subject + ".csv"), low_memory=False)
+    df = pd.read_csv(join(cs.path, "data", "sap100", "short-names", subject + ".csv"), low_memory=False)
     # pull in just the data needed to run the GLYFE metric (no extras!)
     df_glucose_carb_bolus = df[["cDateTime", "blood_glucose_level", "carbs", "normal", "extendedAmount"]].copy()
     # aggregate bolus data and rename columns
