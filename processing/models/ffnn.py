@@ -31,7 +31,7 @@ class FFNN(Predictor):
 
         # save model
         rnd = np.random.randint(1e7)
-        temp_dir = os.path.join(cs.path, "tmp", "ffnn", self.ph, self.subject)
+        temp_dir = os.path.join(cs.path, "tmp", "ffnn", str(self.ph), self.subject)
         os.makedirs(temp_dir, exist_ok=True)
         self.checkpoint_file = os.path.join(temp_dir, str(rnd) + ".pt")
         printd("Saved model's file:", self.checkpoint_file)
