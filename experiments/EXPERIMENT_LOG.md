@@ -33,7 +33,7 @@ fail. The big picture idea is to see if we get different results from a larger
 quantity of data.
 
 **Experiment name**: sap100_6w
-**Commit hash before the experiment**: a694757
+**Commit hash before the experiment**: 556e677
 **Description**: Part 1/3 for the paper that we are writing in 
 Spring 2024. In this experiment, we are running each of the SAP100
 patients through all of De Bois's models, at all three PHs, 
