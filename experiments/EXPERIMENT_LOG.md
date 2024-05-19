@@ -45,7 +45,7 @@ each patient to save space. We haven't yet figured out how to
 generate plots after the fact, though.
 
 **Experiment name**: sap100_6w_gap
-**Commit hash before the experiment**: db41eb5
+**Commit hash before the experiment**: 57a0000
 **Description**: Based on discussions about sap100_6w, we decided to 
 see if the performance of the model is affected by when the training
 data is in relation to the test data. For consistency, in this 
