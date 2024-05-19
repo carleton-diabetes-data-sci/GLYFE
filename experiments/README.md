@@ -22,9 +22,9 @@ See [https://docs.google.com/document/d/1QMlu_VAbRksTsD5c5EauMxsWw7LelWhHhMAd3yi
 for another set of these instructions.
 
 1. If you tried running the code and came here because it raised an Exception, go delete that folder that was created in `experiments`, it should be empty, because your code didn't run.
-2. When you're in GLYFE in the terminal, run (replace "first_tidepool with your experiment name") `datalad create -d . -D "Shared experiment for first run of Tidepool data through GLYFE on Gray" experiments/first_tidepool`
+2. When you're in GLYFE in the terminal, run (replace "my_exp_name with your experiment name") `datalad create -d . -D "Shared experiment for first run of Tidepool data through GLYFE on Gray" experiments/my_exp_name`
 3. Check that this worked by running `datalad subdatasets` and look for your new dataset. Also refresh the file tree in VSCode (little button that appears when you hover on the bar that says "DATA [SSH: GRAY.MATHCS.CARLETON.EDU]) to make sure your experiment appeared in the experiments folder.
 4. Update the `.gitattributes` file in the root of this new experiment dataset to look like the `gitattributes` file in other experiments. Then, at GLYFE in the terminal, run `datalad save -r -m "Correct .gitattributes file in experiment subdataset"` 
-5. In the terminal, at the root of your new dataset, run `git config receive.denyCurrentBranch updateInstead` so that this subdataset can receive pushes without getting grumpy.
-6. If you're about to run your experiment _right now_, go write down log information in `EXPERIMENT_LOG.md`. Then save again: `datalad save -r -m "Recorded experiment log information for my_first_experiment"`
+5. In the terminal, **at the root of your new dataset**, run `git config receive.denyCurrentBranch updateInstead` so that this subdataset can receive pushes without getting grumpy.
+6. If you're about to run your experiment _right now_, go write down log information in `EXPERIMENT_LOG.md`. Then save again: `datalad save -r -m "Recorded experiment log information for my_exp_name"`
 7. Now, you can go back to your local copy of GLYFE, but you'll need to run `datalad update -r --how merge` so that your local copies knows there's a new experiment, and `datalad get experiments/my_exp_name` to actually bring it in.

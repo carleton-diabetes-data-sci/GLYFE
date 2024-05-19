@@ -44,3 +44,13 @@ all three time spans. Also, we only plotted the first 5 days for
 each patient to save space. We haven't yet figured out how to 
 generate plots after the fact, though.
 
+**Experiment name**: sap100_6w_gap
+**Commit hash before the experiment**: db41eb5
+**Description**: Based on discussions about sap100_6w, we decided to 
+see if the performance of the model is affected by when the training
+data is in relation to the test data. For consistency, in this 
+experiment we are taking the 6 weeks of data at the start of the data
+that will be used for the sap100_1y experiment. Patients will error
+out if they do not have enough data. The hypothesis is that this experiment
+will have worse RMSEs than sap100_6w because humans change over time. 
+
