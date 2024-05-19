@@ -1,4 +1,5 @@
 from exceptiongroup import catch
+import pandas as pd
 from .cleaning.unit_scaling import scaling_T1DMS
 from misc import constants as cs
 from preprocessing.cleaning.nans import remove_nans, fill_nans
@@ -183,7 +184,42 @@ def preprocessing_sap100_6w(dataset, subject, ph, hist, day_len, n_days_test):
     train, valid, test, scalers = standardize(train, valid, test)
     return train, valid, test, scalers
 
-# the sap100 preprocessing file might work for other tidepool datasets like PA50 and HCL150, I don't know.
+def preprocessing_sap100_6w_gap(dataset, subject, ph, hist, day_len, n_days_test):
+    """
+    Tidepool SAP100 dataset preprocessing pipeline:
+    Modification of the 6w pipeline to mimic the idea that you train your model once,
+    and then use it for a long period of time.
+    Take the 6 weeks of data from the beginning of the timeframe covered in sap100_1y, 
+    and the same 60 days of test data.
+    
+    Errors out if there is not enough data.
+
+    :param dataset: name of the dataset, e.g. "sap100"
+    :param subject: id of the subject, e.g. "1"
+    :param ph: prediction horizon, e.g. 30
+    :param hist: history length, e.g. 60
+    :param day_len: length of a day normalized by sampling frequency, e.g. 1440 (1440/1)
+    :return: training_old folds, validation folds, testing folds, list of scaler (one per fold)
+    """
+
+    data = load_sap100(dataset, subject)
+
+    # Take correct data as described in doc string
+    data = pd.concat(data.iloc[-(365+60)*1440//cs.freq : -(365+60-42)*1440//cs.freq], data.iloc[-60*1440//cs.freq :])
+    
+    if data.shape[0] < (42+60)*1440//cs.freq:
+        print("Tried to take data out of a 1 year + 60 day timeframe, but there was not enough data for subject " + subject)
+        raise ValueError("Not enough data for subject " + subject)
+
+    data = resample(data, cs.freq)
+    data = create_samples(data, ph, hist, day_len)
+    data = fill_nans(data, day_len, n_days_test)
+    train, valid, test = split(data, day_len, n_days_test, cs.cv)
+    [train, valid, test] = [remove_nans(set) for set in [train, valid, test]]
+    train, valid, test, scalers = standardize(train, valid, test)
+    return train, valid, test, scalers
+
+# the sap100 preprocessing file might work for other tidepool datasets like PA50 and HCL150, I (Erin) don't know.
 preprocessing_per_dataset = {
     "t1dms": preprocessing_t1dms,
     "t1dms_adult": preprocessing_t1dms,
@@ -193,7 +229,8 @@ preprocessing_per_dataset = {
     "sap100": preprocessing_sap100,
     "sap100_1y": preprocessing_sap100_1y,
     "sap100_4m": preprocessing_sap100_4m,
-    "sap100_6w": preprocessing_sap100_6w
+    "sap100_6w": preprocessing_sap100_6w,
+    "sap100_6w_gap": preprocessing_sap100_6w_gap
 }
 
 
