@@ -205,7 +205,7 @@ def preprocessing_sap100_6w_gap(dataset, subject, ph, hist, day_len, n_days_test
     data = load_sap100(dataset, subject)
 
     # Take correct data as described in doc string
-    data = pd.concat(data.iloc[-(365+60)*1440//cs.freq : -(365+60-42)*1440//cs.freq], data.iloc[-60*1440//cs.freq :])
+    data = pd.concat([data.iloc[-(365+60)*1440//cs.freq : -(365+60-42)*1440//cs.freq], data.iloc[-60*1440//cs.freq :]])
     
     if data.shape[0] < (42+60)*1440//cs.freq:
         print("Tried to take data out of a 1 year + 60 day timeframe, but there was not enough data for subject " + subject)
