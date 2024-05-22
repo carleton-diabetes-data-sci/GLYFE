@@ -2,6 +2,28 @@
 
 In Fall 2023, we decided to try to run this code on the exact same data as De Bois.
 
+It took all of the 2023-2024 school year, but we are now able to effectively run 
+De Bois's code! Both with the Ohio dataset and T1DMS simulated dataset that he used, 
+and with varying subsets of the SAP100 data from Tidepool.
+
+Results for experiments that we ran _after_ April 2024 live in the `experiments` folder,
+along with instructions for how create a new experiment using Datalad, and a log file
+where we manually record what each experiment is, and what commit we ran it on.
+
+We reproduced De Bois's results in his original folder structure: the `outputs`, `plots`,
+and `results` top-level folders. It would be quite easy (and only take a day or two to run)
+to reproduce De Bois's results in the Datalad format if we want, just follow the same 
+instructions as for other experiments.
+
+All the code is currently run via the `runit` bash scripts. We probably should have rewritten
+the `batch_main()` function to do what we want, because right now we have to be careful
+to make a new clone of GLYFE whenever we're running a new experiment to make sure that 
+the code stays consistent through the entire run. Update these scripts (or actually go and fix
+batch_main) to run an experiment. Pay attention, taking only a subset of the data 
+(like in the 6w Tidepool experiments) requires naming the data slightly differently. 
+
+
+
 # GLYFE (GLYcemia Forecasting Evaluation)
 
 [![DOI](https://zenodo.org/badge/184261006.svg)](https://zenodo.org/badge/latestdoi/184261006)
