@@ -54,3 +54,11 @@ that will be used for the sap100_1y experiment. Patients will error
 out if they do not have enough data. The hypothesis is that this experiment
 will have worse RMSEs than sap100_6w because humans change over time. 
 
+**Experiment name**: sap100_6w_early
+**Commit hash before the experiment**: de735af
+**Description**: To make the sap100_6w_gap experiment more meaningful,
+we are testing if that same train dataset does better on the 60
+days of data immediately after it as test data. This will also tell 
+us if the accuracy changes wildly between different timeframes of
+the same patient (baby cross validation). We expect RMSEs to be roughly
+the same as sap100_6w, and better than sap100_6w_gap. 
