@@ -26,7 +26,9 @@ Clone a new copy of GLYFE somewhere else in your account on Gray. Modifying the 
 actually modifies what is used to run things because of our silly bash scripts. 
 See the general README for slightly more details. I named these new folders 
 `isol_repos/exp_name` to remind myself that they need to stay isolated and which experiment 
-it was.
+it was. For instructions, see Getting Started in Datalad Instructions in the shared drive. 
+I've also found it convenient to make a new branch (just using git, no fancy datalad stuff) 
+to help make pushing and merging easier once the experiement is wrapping up. 
 
 1. If you tried running the code and came here because it raised an Exception, go delete that folder that was created in `experiments`, it should be empty, because your code didn't run.
 2. When you're in GLYFE in the terminal, run (replace "my_exp_name with your experiment name") `datalad create -d . -D "Shared experiment for first run of Tidepool data through GLYFE on Gray" experiments/my_exp_name`
