@@ -119,7 +119,9 @@ def getIndexTuples(indices):
         _, experiment, _, model, ph, population_patient, metric = index.split('/') # remove 'experiments' from the start, 'outputs' from middle and get info from the key
 
         ph = int(ph[3:]) # change from 'ph-n' to n
-        population, patient = population_patient.split('_') # Get the population and patient id from the patient name
+        population_and_patient = population_patient.split('_')
+        population = population_and_patient[0]
+        patient = population_and_patient[-1] # Get the population and patient id from the patient name
         patient = patient[:-4] # change from 'patient_id.txt' to 'patient_id'
         tuples.append(tuple([experiment, model, ph, population, patient, metric]))
     
