@@ -62,3 +62,12 @@ days of data immediately after it as test data. This will also tell
 us if the accuracy changes wildly between different timeframes of
 the same patient (baby cross validation). We expect RMSEs to be roughly
 the same as sap100_6w, and better than sap100_6w_gap. 
+
+**Experiment name**: sap100_4m
+**Commit hash before the experiment**: 14f5299
+**Description**: This experiment is a part of the original idea for 
+comparisons on different lengths of training data. The test days 
+are the last 60 days of the dataset, same as for sap100_6w (so that 
+comparisons are fair). The training set is 4 months long. If the 
+benefit of more data outweighs the downside of using old data, 
+we expect to see improvements from sap100_6w.
