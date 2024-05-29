@@ -22,7 +22,7 @@ I've also found it convenient to make a new branch (just using git, no fancy dat
 to help make pushing and merging easier once the experiement is wrapping up. 
 
 
-Go into `/data/datasets` on Gray, this is the shared 
+**Open `/data/datasets` in VSCode on Gray,** this is the shared 
 folder where everything is maintained. You should see `GLYFE`
 as one of the directories, go there in the command line. 
 

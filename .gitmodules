@@ -52,3 +52,7 @@
 	path = experiments/run_ohio
 	url = ./experiments/run_ohio
 	datalad-id = 8629bc0b-e7a0-41f7-a20c-45d4aa71761e
+[submodule "experiments/sap100_4m"]
+	path = experiments/sap100_4m
+	url = ./experiments/sap100_4m
+	datalad-id = cf207a51-ecb2-489f-81d3-28110cf20768
