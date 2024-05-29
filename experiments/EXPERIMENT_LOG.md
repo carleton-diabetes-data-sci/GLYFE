@@ -62,3 +62,8 @@ days of data immediately after it as test data. This will also tell
 us if the accuracy changes wildly between different timeframes of
 the same patient (baby cross validation). We expect RMSEs to be roughly
 the same as sap100_6w, and better than sap100_6w_gap. 
+
+**Experiment name**: run_ohio
+**Commit hash before the experiment**: 52bbf47
+**Description**: Run Ohio data using datalad to replicate De Bois's results
+and compare to ours.
