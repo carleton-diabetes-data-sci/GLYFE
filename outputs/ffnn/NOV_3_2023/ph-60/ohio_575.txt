@@ -1,2 +1,0 @@
-2023-11-07 15:42:26 ohio 575 ffnn ffnn NOV_3_2023 test None 60 1
-2023-11-07 15:42:38 Saved model's file: ./tmp/ffnn_weights/6904971.pt
