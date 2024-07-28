@@ -26,7 +26,7 @@ much better instructions for this in Google Drive that explain how Datalad integ
 ## Packages needed
 
 We used the latest version of Python, alongside the default versions of the packages De Bois
-listed (matplotlib, numpy, pandas, patsy, pytorch, scikit-learn, scipy, setuptools, statsmodels). Pytorch requires a bit of effort because you wanted cuda enabled.
+listed (matplotlib, numpy, pandas, patsy, pytorch, scikit-learn, scipy, setuptools, statsmodels). Pytorch requires a bit of effort because you wanted cuda enabled. You also need Datalad. 
 
 
 # De Bois's original README
