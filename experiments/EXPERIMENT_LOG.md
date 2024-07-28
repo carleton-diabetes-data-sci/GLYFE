@@ -71,3 +71,8 @@ are the last 60 days of the dataset, same as for sap100_6w (so that
 comparisons are fair). The training set is 4 months long. If the 
 benefit of more data outweighs the downside of using old data, 
 we expect to see improvements from sap100_6w.
+
+**Experiment name**: run_ohio
+**Commit hash before the experiment**: 52bbf47
+**Description**: Run Ohio data using datalad to replicate De Bois's results
+and compare to ours.

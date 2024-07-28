@@ -20,9 +20,16 @@ the `batch_main()` function to do what we want, because right now we have to be 
 to make a new clone of GLYFE whenever we're running a new experiment to make sure that 
 the code stays consistent through the entire run. Update these scripts (or actually go and fix
 batch_main) to run an experiment. Pay attention, taking only a subset of the data 
-(like in the 6w Tidepool experiments) requires naming the data slightly differently. 
+(like in the 6w Tidepool experiments) requires naming the data slightly differently. There's 
+much better instructions for this in Google Drive that explain how Datalad integrates. 
+
+## Packages needed
+
+We used the latest version of Python, alongside the default versions of the packages De Bois
+listed (matplotlib, numpy, pandas, patsy, pytorch, scikit-learn, scipy, setuptools, statsmodels). Pytorch requires a bit of effort because you wanted cuda enabled. You also need Datalad. 
 
 
+# De Bois's original README
 
 # GLYFE (GLYcemia Forecasting Evaluation)
 

@@ -1,2 +1,0 @@
-2023-11-08 13:35:52 ohio 588 ffnn ffnn NOV_3_2023 test None 60 1
-2023-11-08 13:35:59 Saved model's file: ./tmp/ffnn_weights/2268777.pt
