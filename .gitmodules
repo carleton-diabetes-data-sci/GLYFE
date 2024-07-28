@@ -56,3 +56,7 @@
 	path = experiments/sap100_4m
 	url = ./experiments/sap100_4m
 	datalad-id = cf207a51-ecb2-489f-81d3-28110cf20768
+[submodule "experiments/video_exp"]
+	path = experiments/video_exp
+	url = ./experiments/video_exp
+	datalad-id = 2e9e1cfc-6d03-4c30-9a90-7a3796784c87
