@@ -4,13 +4,14 @@
     },
     "runArgs": [
         "--shm-size=2gb", // std 64mb (!) are not enough
-        "--gpus", "all"
+        //"--gpus", "all"
         // "--cpus=4",
         // "-m 4gb"
     ],
     "mounts": [
         "source=/data,target=/data,type=bind,consistency=cached"
-      ]
+      ],
+      
     "settings": {
         "terminal.integrated.profiles.linux": {
             "bash (login)": {
@@ -21,13 +22,14 @@
             }
         },
         "terminal.integrated.defaultProfile.linux": "bash (login)"
-    }
-    // "extensions": [
+    },
+    "extensions": [
+        "ms-azuretools.vscode-docker",
     //     "donjayamanne.git-extension-pack",
     //     "mhutchie.git-graph",
     //     "ms-python.python",
     //     "ms-vscode.cpptools",
     //     "ms-vscode.cpptools-extension-pack",
     //     "ms-vscode.cpptools-themes"
-    // ]
+    ]
 }
