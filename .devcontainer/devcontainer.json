@@ -10,26 +10,37 @@
     ],
     "mounts": [
         "source=/data,target=/data,type=bind,consistency=cached"
-      ],
-      
-    "settings": {
-        "terminal.integrated.profiles.linux": {
-            "bash (login)": {
-                "path": "/bin/bash",
-                "args": [
-                    "-li"
-                ]
+    ],
+    // "hostRequirements": {
+    //     "gpu": false
+    // },
+    "features": {
+        // "ghcr.io/devcontainers/features/common-utils:2": {},
+        // "ghcr.io/devcontainers/features/nvidia-cuda:1": {},
+        // "ghcr.io/devcontainers/features/conda:1": {
+        //     ""addCondaForge": true"
+        // },
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "zsh",
+                "terminal.integrated.profiles.linux": {
+                    "zsh": {
+                        "path": "/bin/zsh"
+                    }
+                }
             }
-        },
-        "terminal.integrated.defaultProfile.linux": "bash (login)"
+        }
     },
     "extensions": [
-        "ms-azuretools.vscode-docker",
-    //     "donjayamanne.git-extension-pack",
-    //     "mhutchie.git-graph",
-    //     "ms-python.python",
-    //     "ms-vscode.cpptools",
-    //     "ms-vscode.cpptools-extension-pack",
-    //     "ms-vscode.cpptools-themes"
-    ]
+        // "ms-azuretools.vscode-docker",
+        //     "donjayamanne.git-extension-pack",
+        //     "mhutchie.git-graph",
+        //     "ms-python.python",
+        //     "ms-vscode.cpptools",
+        //     "ms-vscode.cpptools-extension-pack",
+        //     "ms-vscode.cpptools-themes"
+    ],
+    
 }

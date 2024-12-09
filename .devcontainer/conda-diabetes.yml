@@ -1,0 +1,7 @@
+name: diabetes
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - datalad=1.1.4
+  - tig
