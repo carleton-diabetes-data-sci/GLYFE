@@ -4,16 +4,14 @@
     },
     "runArgs": [
         "--shm-size=2gb", // std 64mb (!) are not enough
-        //"--gpus", "all"
+        "--gpus", "all"
         // "--cpus=4",
         // "-m 4gb"
     ],
     "mounts": [
         "source=/data,target=/data,type=bind,consistency=cached"
     ],
-    // "hostRequirements": {
-    //     "gpu": false
-    // },
+    
     "features": {
         // "ghcr.io/devcontainers/features/common-utils:2": {},
         // "ghcr.io/devcontainers/features/nvidia-cuda:1": {},
